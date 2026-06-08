@@ -6,7 +6,7 @@
     <title>鸣沙之门｜敦煌听声搜打撤游戏概念官网</title>
     <meta
       name="description"
-      content="《鸣沙之门》是一款以敦煌壁画、三兔共耳传送门、雷鼓与声音辨位为核心的多人搜打撤游戏概念官网，展示玩法演示、概念视频、美术资产、BOSS、场景、角色与宝物道具。"
+      content="《鸣沙之门》是一款以敦煌壁画、三兔共耳纹样、雷鼓与声音辨位为核心的多人搜打撤游戏概念官网，展示玩法演示、世界观、美术资产、BOSS、场景、角色与宝物道具。"
     >
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -16,307 +16,214 @@
         <img
           class="brand-logo"
           src="assets/images/brand/three-hares-silk-road-logo.svg"
-          alt="三兔共耳丝路门印"
+          alt="鸣沙之门"
         >
         <span>鸣沙之门</span>
       </a>
       <nav class="site-nav" aria-label="主要导航">
-        <a href="#demo">演示</a>
+        <a href="#overview">概览</a>
         <a href="#gameplay">玩法</a>
-        <a href="#assets">美术资产</a>
-        <a href="#portal">三兔门</a>
-        <a href="#docs">文档</a>
+        <a href="#world">世界</a>
+        <a href="#art">美术</a>
         <a href="#videos">视频</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-bg" aria-hidden="true"></div>
+        <picture class="hero-media">
+          <img src="assets/images/campaign/mural-threshold-extraction.png" alt="小队穿过敦煌壁画门进入黑沙风暴">
+        </picture>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content">
           <p class="eyebrow">敦煌幻想 · 丝路三兔 · 听声搜打撤</p>
           <h1 id="hero-title">鸣沙之门</h1>
           <p class="hero-copy">
-            四人小队入窟，听声寻找遗物，雷鼓破阵抢节奏，守住三兔共耳门撤离。品牌门印取自敦煌与欧洲共享的“三兔共耳”图像线索，把丝路流动、共用一耳和传送门共鸣变成游戏核心记忆点。
+            四人小队潜入被黑沙吞没的壁画遗址，依靠声音辨位寻找遗物、规避诅咒、击破雷鼓窗口，最终在三兔共耳纹样开启的壁画门前完成撤离。
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#demo">观看玩法演示</a>
-            <a class="button button-secondary" href="#assets">浏览美术资产</a>
+            <a class="button button-primary" href="#videos">观看高清演示</a>
+            <a class="button button-secondary" href="#art">浏览美术资产</a>
           </div>
         </div>
-        <div class="hero-strip" aria-label="游戏关键卖点">
-          <div>
-            <span>核心循环</span>
-            <strong>听声探索 / 搜物取舍 / 三兔撤离</strong>
-          </div>
-          <div>
-            <span>单局目标</span>
-            <strong>12-18 分钟完成搜、打、撤</strong>
-          </div>
-          <div>
-            <span>视觉锚点</span>
-            <strong>雷神、黑沙、壁画门、兔耳印</strong>
-          </div>
+        <div class="hero-stats" aria-label="游戏关键信息">
+          <div><span>类型</span><strong>多人 PvPvE 搜打撤</strong></div>
+          <div><span>单局</span><strong>12–18 分钟</strong></div>
+          <div><span>核心</span><strong>听声 / 取舍 / 撤离</strong></div>
         </div>
       </section>
 
-      <section class="section demo-section" id="demo" aria-labelledby="demo-title">
-        <div class="section-inner">
-          <div class="section-heading wide">
-            <p class="section-kicker">Playable Pitch Video</p>
-            <h2 id="demo-title">把“可落地玩法”直接做成一条可播放演示。</h2>
+      <section class="section intro-section" id="overview" aria-labelledby="overview-title">
+        <div class="section-inner intro-grid">
+          <div class="section-copy">
+            <p class="section-kicker">Game Pitch</p>
+            <h2 id="overview-title">把“敦煌壁画探险”压缩成一条清晰可执行的搜打撤闭环。</h2>
             <p>
-              这条 72 秒版本去掉复杂职业协作，用入局、听声、搜物、雷鼓、三兔撤离和结算来说明 MVP 的真实制作边界。
+              玩家不需要理解复杂职业协作，只要在一局内完成三件事：听出价值的位置，判断该拿多少，带着队友从门里撤出去。雷神、黑沙、三兔共耳和壁画宝物都服务于这个闭环。
             </p>
           </div>
-          <div class="video-stage">
-            <video
-              controls
-              playsinline
-              preload="metadata"
-              poster="assets/videos/mingsha-gate-playable-demo-poster.jpg"
-              src="assets/videos/mingsha-gate-playable-demo-delivery.mp4"
-            ></video>
-            <div class="video-notes">
-              <span>72s / 1280×720 / H.264 + AAC</span>
-              <strong>听声入窟，雷鼓破阵，三兔共鸣，全队撤离。</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section gameplay" id="gameplay" aria-labelledby="gameplay-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">MVP Gameplay</p>
-            <h2 id="gameplay-title">一局只保留三件事：找价值，控风险，撤出去。</h2>
-          </div>
-          <div class="loop-track" aria-label="玩法流程">
+          <div class="pitch-points">
             <article>
               <span>01</span>
-              <h3>入局准备</h3>
-              <p>确认任务、背包容量、撤离目标和本局洞窟异象。</p>
+              <h3>听声找价值</h3>
+              <p>铜铃、风沙、壁面回响和怪物噪音构成可学习的声音地图。</p>
             </article>
             <article>
               <span>02</span>
-              <h3>听声探索</h3>
-              <p>用听音脉冲识别遗物、兔耳印、敌影和撤离门方向。</p>
+              <h3>搜物做取舍</h3>
+              <p>宝物越稀有，负重、暴露声和黑沙诅咒越高。</p>
             </article>
             <article>
               <span>03</span>
-              <h3>搜到遗物</h3>
-              <p>遗物价值提高收益，同时增加负重、噪音和黑沙诅咒。</p>
-            </article>
-            <article>
-              <span>04</span>
-              <h3>雷鼓遭遇</h3>
-              <p>战斗围绕雷鼓窗口展开：击鼓破盾，短促推进。</p>
-            </article>
-            <article>
-              <span>05</span>
-              <h3>三兔撤离</h3>
-              <p>兔耳印启动三兔门，三段共鸣提示开门、守门、撤离。</p>
-            </article>
-            <article>
-              <span>06</span>
-              <h3>结算成长</h3>
-              <p>带出遗物、解锁壁画线索，下一局风险与收益同步升级。</p>
-            </article>
-          </div>
-
-          <div class="systems-grid">
-            <article>
-              <h3>声音玩法</h3>
-              <p>风沙是底噪，铜铃指向遗物，轻回响指向兔耳印，黑沙噪音提示危险靠近。</p>
-            </article>
-            <article>
-              <h3>风险收益</h3>
-              <p>价值越高，负重越大；噪音越高，越容易暴露；诅咒越深，幻听与假标记越多。</p>
-            </article>
-            <article>
-              <h3>四神替代方案</h3>
-              <p>四神不再是职业分工，改成每局洞窟异象：风、雨、雷、电改变环境规则和风险节奏。</p>
+              <h3>抢节奏撤离</h3>
+              <p>雷鼓打断怪物节奏，三段共鸣提示小队守门与撤离。</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section asset-showcase" id="assets" aria-labelledby="assets-title">
+      <section class="section gameplay-section" id="gameplay" aria-labelledby="gameplay-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Playable Loop</p>
+            <h2 id="gameplay-title">一局玩法只保留六个节点，方便制作、演示和玩家理解。</h2>
+          </div>
+
+          <div class="play-layout">
+            <div class="loop-list" aria-label="核心玩法节点">
+              <article><span>01</span><strong>入局准备</strong><p>选任务、看背包容量、确认撤离目标。</p></article>
+              <article><span>02</span><strong>听声探索</strong><p>用声音判断遗物、兔耳印、敌人和门区方向。</p></article>
+              <article><span>03</span><strong>搜到遗物</strong><p>遗物提高收益，也提高噪音、负重和诅咒。</p></article>
+              <article><span>04</span><strong>雷鼓遭遇</strong><p>击鼓破盾，制造短窗口推进或掩护队友。</p></article>
+              <article><span>05</span><strong>三兔撤离</strong><p>兔耳印开启门区，三段共鸣对应开门、守门、撤离。</p></article>
+              <article><span>06</span><strong>结算成长</strong><p>带出宝物，解锁壁画线索和下一层风险。</p></article>
+            </div>
+
+            <figure class="node-map">
+              <img src="assets/videos/mingsha-gameplay-core-node-map.png" alt="鸣沙之门核心玩法节点拆解图">
+              <figcaption>制作视角的玩法节点图：每个节点都对应玩家行为、系统反馈和可拆分制作任务。</figcaption>
+            </figure>
+          </div>
+
+          <div class="system-strip" aria-label="玩法系统">
+            <article>
+              <h3>声音玩法</h3>
+              <p>玩家用声音脉冲判断风险，不依赖大量 UI 提示。</p>
+            </article>
+            <article>
+              <h3>风险收益</h3>
+              <p>拿得越多越值钱，也越重、越响、越容易被追上。</p>
+            </article>
+            <article>
+              <h3>团队配合</h3>
+              <p>不绑定职业，队友只需分工听声、搬运、掩护、守门。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section world-section" id="world" aria-labelledby="world-title">
+        <div class="world-media">
+          <img src="assets/images/campaign/moonlit-ruins-approach.png" alt="小队在月夜进入黑沙遗址">
+        </div>
+        <div class="section-inner world-panel">
+          <div class="section-copy">
+            <p class="section-kicker">World & Motif</p>
+            <h2 id="world-title">三兔共耳从壁画纹样变成玩家寻找出口的世界规则。</h2>
+            <p>
+              敦煌三兔共耳与欧亚多地三兔纹样共享“追逐成环、三耳成三角”的图像结构。游戏中，这个纹样不以说明牌出现，而是被转译为壁画门、兔耳印、声音共鸣和宝物图案：玩家看到它，就知道这里牵连着方向、循环和撤离时机。
+            </p>
+          </div>
+          <div class="lore-steps">
+            <article><span>敦煌藻井</span><p>天顶纹样记录三兔旋转，像一扇向上的门。</p></article>
+            <article><span>丝路流动</span><p>图像穿过商路和宗教空间，留下不同地域的变体。</p></article>
+            <article><span>黑沙复苏</span><p>遗址中的纹样被雷鼓唤醒，成为门区共鸣机关。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section art-section" id="art" aria-labelledby="art-title">
         <div class="section-inner">
           <div class="asset-heading">
             <div>
-              <p class="section-kicker">Art Bible</p>
-              <h2 id="assets-title">美术核心资产：场景、角色、BOSS、传送门与宝物。</h2>
+              <p class="section-kicker">High Resolution Art</p>
+              <h2 id="art-title">核心美术资产：场景、角色、BOSS、传送门、宝物道具。</h2>
             </div>
             <div class="asset-filters" aria-label="资产筛选">
               <button type="button" class="is-active" data-filter="all">全部</button>
               <button type="button" data-filter="scene">场景</button>
               <button type="button" data-filter="character">角色</button>
               <button type="button" data-filter="boss">BOSS</button>
-              <button type="button" data-filter="prop">道具</button>
               <button type="button" data-filter="portal">传送门</button>
+              <button type="button" data-filter="prop">宝物</button>
             </div>
+          </div>
+
+          <div class="feature-gallery">
+            <article class="feature-art" data-kind="scene" data-full="assets/images/campaign/mural-threshold-extraction.png">
+              <img src="assets/images/campaign/mural-threshold-extraction.png" alt="壁画门撤离场景概念图">
+              <div><span>关键场景</span><h3>壁画门撤离</h3><p>最适合作为宣传页主视觉：壁画、风沙、门区和玩家行动目标同时出现。</p></div>
+            </article>
+            <article class="feature-art" data-kind="portal" data-full="assets/images/campaign/three-hares-portal-relic.png">
+              <img src="assets/images/campaign/three-hares-portal-relic.png" alt="三兔共耳传送门概念图">
+              <div><span>核心装置</span><h3>三兔共耳传送门</h3><p>三只玉兔围绕星旋构成门体，承担终局撤离、深层入口和宣传识别。</p></div>
+            </article>
           </div>
 
           <div class="asset-grid">
-            <article class="asset-card is-large" data-kind="scene" data-full="assets/images/showcase/scene-mogao-grotto-gate.png">
-              <img src="assets/images/showcase/scene-mogao-grotto-gate.png" alt="黑沙石窟与三兔共耳传送门场景概念图">
-              <div>
-                <span>场景概念</span>
-                <h3>黑沙石窟与三兔门</h3>
-                <p>用于官网首屏、场景资产页和关卡氛围设定。</p>
-              </div>
+            <article class="asset-card" data-kind="scene" data-full="assets/images/campaign/moonlit-ruins-approach.png">
+              <img src="assets/images/campaign/moonlit-ruins-approach.png" alt="月夜遗址入口场景概念图">
+              <div><span>场景概念</span><h3>月夜遗址入口</h3><p>小队从外部黑沙遗址进入洞窟，建立探索前的压迫感。</p></div>
             </article>
-            <article class="asset-card" data-kind="portal" data-full="assets/images/brand/three-hares-silk-road-logo.svg">
-              <img class="asset-logo" src="assets/images/brand/three-hares-silk-road-logo.svg" alt="三兔共耳丝路门印 LOGO">
-              <div>
-                <span>品牌 LOGO</span>
-                <h3>三兔共耳丝路门印</h3>
-                <p>融合敦煌藻井色彩、欧洲三兔剪影、传送门声波和撤离三角。</p>
-              </div>
+            <article class="asset-card" data-kind="boss" data-full="assets/images/campaign/fresco-boss-encounter.png">
+              <img src="assets/images/campaign/fresco-boss-encounter.png" alt="壁画厅 BOSS 遭遇概念图">
+              <div><span>BOSS 遭遇</span><h3>壁画厅交战</h3><p>黑沙怪物从壁面与地面中剥离，适合表现 PvE 高压节点。</p></div>
             </article>
-            <article class="asset-card" data-kind="character" data-full="assets/images/showcase/character-thunder-god-sheet.png">
-              <img src="assets/images/showcase/character-thunder-god-sheet.png" alt="敦煌雷神角色设定图">
-              <div>
-                <span>角色设计</span>
-                <h3>雷神守护者</h3>
-                <p>雷鼓、雷链、飞带和壁画矿物色构成关键识别。</p>
-              </div>
+            <article class="asset-card" data-kind="character" data-full="assets/images/campaign/dunhuang-thunder-god-keyart.png">
+              <img src="assets/images/campaign/dunhuang-thunder-god-keyart.png" alt="敦煌雷神角色原画">
+              <div><span>角色设计</span><h3>雷神守护者</h3><p>风雨雷电四神之一，负责雷鼓、节奏窗口和门区压迫。</p></div>
             </article>
             <article class="asset-card" data-kind="boss" data-full="assets/images/showcase/boss-black-sand-oathbearer.png">
               <img src="assets/images/showcase/boss-black-sand-oathbearer.png" alt="黑沙守誓者 BOSS 概念图">
-              <div>
-                <span>BOSS 怪物</span>
-                <h3>黑沙守誓者</h3>
-                <p>壁画石、黑沙、铜面具与兔耳印融合的门区压迫源。</p>
-              </div>
+              <div><span>BOSS 怪物</span><h3>黑沙守誓者</h3><p>壁画石、铜面具和兔耳印构成门区守卫。</p></div>
             </article>
             <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/loot-relics-board.png">
-              <img src="assets/images/showcase/loot-relics-board.png" alt="核心遗物与宝物道具概念图">
-              <div>
-                <span>掉落物与宝物</span>
-                <h3>兔耳印与遗物组</h3>
-                <p>兔耳印、铜铃、壁画残卷、颜料罐、雷鼓碎片和黑沙遗物。</p>
-              </div>
+              <img src="assets/images/showcase/loot-relics-board.png" alt="核心宝物道具概念图">
+              <div><span>宝物道具</span><h3>兔耳印与遗物组</h3><p>铜铃、壁画残卷、颜料罐、雷鼓碎片和黑沙遗物。</p></div>
             </article>
-            <article class="asset-card" data-kind="portal" data-full="assets/images/promotional/dunhuang-four-deities-endgame-portal.png">
-              <img src="assets/images/promotional/dunhuang-four-deities-endgame-portal.png" alt="三兔共耳终局传送门概念图">
-              <div>
-                <span>传送门概念</span>
-                <h3>三兔共耳终局门</h3>
-                <p>从普通撤离点升级为通往深层洞窟的终局目标。</p>
-              </div>
-            </article>
-            <article class="asset-card" data-kind="scene" data-full="assets/images/black-sand-monastery.png">
-              <img src="assets/images/black-sand-monastery.png" alt="黑沙废寺场景概念图">
-              <div>
-                <span>场景概念</span>
-                <h3>黑沙废寺</h3>
-                <p>外部据点与黑沙压力来源，可用于章节封面。</p>
-              </div>
-            </article>
-            <article class="asset-card" data-kind="portal" data-full="assets/images/promotional/dunhuang-thunder-portal-keyart.png">
-              <img src="assets/images/promotional/dunhuang-thunder-portal-keyart.png" alt="雷神与三兔门主视觉">
-              <div>
-                <span>宣传主视觉</span>
-                <h3>雷神唤门</h3>
-                <p>雷神、三兔门与小队撤离目标同框。</p>
-              </div>
-            </article>
-            <article class="asset-card" data-kind="scene" data-full="assets/videos/mingsha-gameplay-core-node-map.png">
-              <img src="assets/videos/mingsha-gameplay-core-node-map.png" alt="玩法核心节点拆解图">
-              <div>
-                <span>玩法图形</span>
-                <h3>核心玩法节点拆解</h3>
-                <p>适合给制作团队拆任务、排优先级。</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section portal-brand" id="portal" aria-labelledby="portal-title">
-        <div class="section-inner portal-grid">
-          <div>
-            <p class="section-kicker">Three Hares Silk Road Mark</p>
-            <h2 id="portal-title">从敦煌藻井到欧洲三兔，三兔共耳被重组为“丝路门印”。</h2>
-            <p>
-              LOGO 以敦煌三兔共耳为源头，吸收欧洲三野兔图中黑色剪影与三耳三角的强识别，再转译成游戏里的传送门、听声共鸣和撤离门印。它不是单纯复刻文物纹样，而是把“图像沿丝路流动”的历史感，变成《鸣沙之门》的核心视觉叙事。
-            </p>
-            <div class="portal-rules">
-              <div><strong>敦煌藻井</strong><span>朱砂外环、青绿尖瓣与莲瓣秩序，回应莫高窟天顶装饰。</span></div>
-              <div><strong>欧洲三兔</strong><span>三只黑兔追逐成环，三枚共耳形成稳定三角，强化远读识别。</span></div>
-              <div><strong>游戏门印</strong><span>金色三角节点对应开门、守门、撤离三段共鸣。</span></div>
-              <div><strong>雷鼓声波</strong><span>虚线环像听声脉冲，也像雷神击鼓后扩散的传送门波纹。</span></div>
-            </div>
-          </div>
-          <div class="logo-spec">
-            <img class="spec-logo" src="assets/images/brand/three-hares-silk-road-logo.svg" alt="鸣沙之门三兔共耳丝路门印 LOGO">
-            <span>鸣沙之门 / 三兔共耳丝路门印</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section docs-section" id="docs" aria-labelledby="docs-title">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Production Notes</p>
-            <h2 id="docs-title">把玩法方案沉淀为可执行制作任务。</h2>
-          </div>
-          <div class="doc-grid">
-            <article>
-              <h3>P0 必须先做</h3>
-              <p>入局配置、听音脉冲、遗物拾取、风险条、雷鼓破盾、三兔撤离、结算成长。</p>
-            </article>
-            <article>
-              <h3>P1 强化体验</h3>
-              <p>声音传播、假声源、黑沙幻听、门区守门波次、可丢弃背包与队友标记。</p>
-            </article>
-            <article>
-              <h3>P2 丰富内容</h3>
-              <p>四神异象、更多洞窟、BOSS 事件、宝物套组、赛季经济和壁画剧情。</p>
+            <article class="asset-card" data-kind="scene" data-full="assets/images/showcase/scene-mogao-grotto-gate.png">
+              <img src="assets/images/showcase/scene-mogao-grotto-gate.png" alt="黑沙石窟与三兔共耳门场景图">
+              <div><span>场景概念</span><h3>黑沙石窟门厅</h3><p>用于关卡入口、官网背景和门区空间气氛。</p></div>
             </article>
           </div>
         </div>
       </section>
 
       <section class="section videos-section" id="videos" aria-labelledby="videos-title">
-        <div class="section-inner">
-          <div class="videos-layout">
-            <div>
-              <p class="section-kicker">Concept Video Library</p>
-              <h2 id="videos-title">视频素材库：落地演示、声音玩法、制作拆解。</h2>
-              <p>三条视频分别服务于不同沟通场景：外部宣传看落地演示，玩法评审看声音机制，制作讨论看节点拆解。</p>
-              <div class="video-switcher" aria-label="切换视频">
-                <button type="button" class="is-active" data-video="0">落地玩法</button>
-                <button type="button" data-video="1">声音玩法</button>
-                <button type="button" data-video="2">制作拆解</button>
-              </div>
+        <div class="section-inner videos-layout">
+          <div class="video-copy">
+            <p class="section-kicker">Video Showcase</p>
+            <h2 id="videos-title">高清演示视频：玩法、声音机制、制作拆解。</h2>
+            <p>
+              三条视频分别服务宣传、评审和制作沟通：第一条展示可落地玩法闭环，第二条强调听声判断，第三条帮助团队理解制作节点。
+            </p>
+            <div class="video-switcher" aria-label="切换视频">
+              <button type="button" class="is-active" data-video="0">玩法演示</button>
+              <button type="button" data-video="1">声音机制</button>
+              <button type="button" data-video="2">制作拆解</button>
             </div>
-            <figure class="video-library">
-              <video
-                data-feature-video
-                controls
-                playsinline
-                preload="metadata"
-                poster="assets/videos/mingsha-gate-playable-demo-poster.jpg"
-                src="assets/videos/mingsha-gate-playable-demo-delivery.mp4"
-              ></video>
-              <figcaption data-feature-caption>落地玩法演示：入局准备、听声探索、遗物风险、雷鼓遭遇、三兔撤离与结算。</figcaption>
-            </figure>
           </div>
-        </div>
-      </section>
-
-      <section class="section final-cta" aria-labelledby="cta-title">
-        <div class="section-inner cta-inner">
-          <p class="section-kicker">Pitch Summary</p>
-          <h2 id="cta-title">玩法让玩家听懂风险，美术让玩家记住门。</h2>
-          <p>
-            《鸣沙之门》的官网展示重点是：一条可执行的搜打撤闭环，一套围绕三兔共耳门的视觉识别，以及足够支撑制作推进的场景、角色、BOSS、道具和视频资产。
-          </p>
-          <a class="button button-primary" href="#demo">回看演示视频</a>
+          <figure class="video-stage">
+            <video
+              data-feature-video
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/videos/mingsha-gate-playable-demo-poster.jpg"
+              src="assets/videos/mingsha-gate-playable-demo-delivery.mp4"
+            ></video>
+            <figcaption data-feature-caption>玩法演示：入局准备、听声探索、遗物风险、雷鼓遭遇、三兔撤离与结算。</figcaption>
+          </figure>
         </div>
       </section>
     </main>

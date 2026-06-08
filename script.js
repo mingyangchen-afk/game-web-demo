@@ -1,6 +1,6 @@
 const header = document.querySelector("[data-header]");
 const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
-const assetCards = Array.from(document.querySelectorAll("[data-kind]"));
+const artworkItems = Array.from(document.querySelectorAll("[data-kind]"));
 const modal = document.querySelector("[data-modal]");
 const modalImage = document.querySelector("[data-modal-image]");
 const modalClose = document.querySelector("[data-modal-close]");
@@ -12,22 +12,22 @@ const videos = [
   {
     src: "assets/videos/mingsha-gate-playable-demo-delivery.mp4",
     poster: "assets/videos/mingsha-gate-playable-demo-poster.jpg",
-    caption: "落地玩法演示：入局准备、听声探索、遗物风险、雷鼓遭遇、三兔撤离与结算。"
+    caption: "玩法演示：入局准备、听声探索、遗物风险、雷鼓遭遇、三兔撤离与结算。"
   },
   {
     src: "assets/videos/mingsha-gate-sound-gameplay-demo-delivery.mp4",
     poster: "assets/videos/mingsha-gate-sound-gameplay-demo-poster.jpg",
-    caption: "声音玩法演示：听声入窟、雷鼓破阵、三兔三段共鸣。"
+    caption: "声音机制：风沙底噪、遗物铜铃、敌人噪音和门区三段共鸣。"
   },
   {
     src: "assets/videos/mingsha-gate-showcase-production-video-delivery.mp4",
     poster: "assets/videos/mingsha-gate-showcase-production-video-poster.png",
-    caption: "制作拆解视频：核心公式、一局循环、节点任务与制作优先级。"
+    caption: "制作拆解：核心公式、一局循环、节点任务和制作优先级。"
   }
 ];
 
 const setHeaderState = () => {
-  header.classList.toggle("is-scrolled", window.scrollY > 8);
+  header?.classList.toggle("is-scrolled", window.scrollY > 8);
 };
 
 const setFilter = (kind) => {
@@ -37,15 +37,15 @@ const setFilter = (kind) => {
     button.setAttribute("aria-pressed", String(active));
   });
 
-  assetCards.forEach((card) => {
-    const visible = kind === "all" || card.dataset.kind === kind;
-    card.classList.toggle("is-hidden", !visible);
+  artworkItems.forEach((item) => {
+    const visible = kind === "all" || item.dataset.kind === kind;
+    item.classList.toggle("is-hidden", !visible);
   });
 };
 
-const showAsset = (card) => {
-  const src = card.dataset.full;
-  const img = card.querySelector("img");
+const showArtwork = (item) => {
+  const src = item.dataset.full;
+  const img = item.querySelector("img");
   if (!src || !img || !modal || !modalImage) return;
 
   modalImage.src = src;
@@ -74,13 +74,13 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", () => setFilter(button.dataset.filter));
 });
 
-assetCards.forEach((card) => {
-  card.tabIndex = 0;
-  card.addEventListener("click", () => showAsset(card));
-  card.addEventListener("keydown", (event) => {
+artworkItems.forEach((item) => {
+  item.tabIndex = 0;
+  item.addEventListener("click", () => showArtwork(item));
+  item.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      showAsset(card);
+      showArtwork(item);
     }
   });
 });
