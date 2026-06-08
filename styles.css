@@ -1,17 +1,21 @@
 :root {
   color-scheme: dark;
-  --ink: #f4ead8;
-  --muted: #c7bda8;
-  --soft: #8f846f;
-  --night: #0c0a08;
-  --stone: #17130f;
-  --stone-2: #221a14;
-  --line: rgba(244, 234, 216, 0.16);
-  --gold: #d2a95d;
-  --cinnabar: #a94d35;
-  --malachite: #42806b;
-  --azurite: #2f5f81;
-  --shadow: rgba(0, 0, 0, 0.58);
+  --ink: #f7ead0;
+  --muted: #cdbd9e;
+  --soft: #9f927c;
+  --night: #0b0908;
+  --obsidian: #14100e;
+  --stone: #1d1713;
+  --stone-2: #241a15;
+  --line: rgba(247, 234, 208, 0.15);
+  --line-strong: rgba(229, 179, 89, 0.42);
+  --gold: #e1b45f;
+  --gold-deep: #96652d;
+  --cinnabar: #b65337;
+  --malachite: #4c9478;
+  --azurite: #33708d;
+  --thunder: #f0ce6d;
+  --shadow: rgba(0, 0, 0, 0.6);
   --max: 1180px;
 }
 
@@ -25,15 +29,16 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--night);
   color: var(--ink);
   font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 body::selection {
   background: var(--cinnabar);
-  color: #fff8eb;
+  color: #fff7e7;
 }
 
 a {
@@ -61,41 +66,69 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 18px clamp(18px, 4vw, 48px);
+  padding: 18px 46px;
   color: var(--ink);
-  transition: background 180ms ease, border-color 180ms ease;
+  transition: background 180ms ease, border-color 180ms ease, padding 180ms ease;
 }
 
 .site-header.is-scrolled {
-  background: rgba(12, 10, 8, 0.84);
+  padding-top: 12px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
+  background: rgba(11, 9, 8, 0.84);
   backdrop-filter: blur(16px);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-width: 118px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0;
+  gap: 11px;
+  min-width: 126px;
+  font-size: 17px;
+  font-weight: 800;
 }
 
 .brand-mark {
-  width: 18px;
-  height: 18px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
   border: 2px solid var(--gold);
   border-radius: 50%;
-  box-shadow: inset 0 0 0 4px rgba(66, 128, 107, 0.45);
+  box-shadow: inset 0 0 0 5px rgba(76, 148, 120, 0.32), 0 0 20px rgba(225, 180, 95, 0.25);
+}
+
+.brand-mark span,
+.brand-mark::before,
+.brand-mark::after {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  content: "";
+}
+
+.brand-mark span {
+  transform: translateY(-7px);
+}
+
+.brand-mark::before {
+  transform: translate(-6px, 5px);
+}
+
+.brand-mark::after {
+  transform: translate(6px, 5px);
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 3vw, 34px);
+  gap: 30px;
   color: var(--muted);
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .site-nav a {
@@ -137,68 +170,79 @@ a {
 }
 
 .hero-bg {
-  background-image: url("assets/images/black-sand-monastery.png");
+  background-image: url("assets/images/promotional/dunhuang-thunder-portal-keyart.png");
   background-size: cover;
   background-position: center;
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .hero-shade {
   background:
-    linear-gradient(90deg, rgba(8, 6, 5, 0.9) 0%, rgba(8, 6, 5, 0.64) 42%, rgba(8, 6, 5, 0.2) 100%),
-    linear-gradient(0deg, rgba(12, 10, 8, 0.92) 0%, rgba(12, 10, 8, 0) 44%);
+    linear-gradient(90deg, rgba(8, 6, 5, 0.92) 0%, rgba(8, 6, 5, 0.68) 38%, rgba(8, 6, 5, 0.18) 100%),
+    linear-gradient(0deg, rgba(11, 9, 8, 0.95) 0%, rgba(11, 9, 8, 0) 48%);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  width: min(760px, calc(100% - 36px));
+  width: min(760px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 132px 0 118px;
+  padding: 128px 0 96px;
 }
 
 .eyebrow,
 .section-kicker {
-  margin: 0 0 14px;
+  margin: 0 0 13px;
   color: var(--gold);
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0;
+  font-weight: 800;
 }
 
 h1,
 h2,
 h3,
-p {
+p,
+figure {
   margin-top: 0;
 }
 
+h1,
+h2,
+h3,
+p,
+strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 h1 {
-  margin-bottom: 20px;
-  font-size: clamp(56px, 11vw, 132px);
-  line-height: 0.92;
-  letter-spacing: 0;
+  margin-bottom: 22px;
+  font-size: 88px;
+  line-height: 0.95;
 }
 
 h2 {
   margin-bottom: 18px;
-  font-size: clamp(30px, 5vw, 58px);
-  line-height: 1.08;
-  letter-spacing: 0;
+  font-size: 44px;
+  line-height: 1.12;
 }
 
 h3 {
   margin-bottom: 10px;
-  font-size: 20px;
-  line-height: 1.25;
-  letter-spacing: 0;
+  font-size: 21px;
+  line-height: 1.28;
+}
+
+p {
+  color: var(--muted);
 }
 
 .hero-copy {
-  max-width: 670px;
+  max-width: 680px;
   margin-bottom: 30px;
-  color: var(--muted);
-  font-size: clamp(17px, 2.1vw, 22px);
+  color: #e3d3b8;
+  font-size: 20px;
 }
 
 .hero-actions {
@@ -216,7 +260,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 6px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
   transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 
@@ -228,11 +272,11 @@ h3 {
 .button-primary {
   background: var(--gold);
   border-color: var(--gold);
-  color: #16100a;
+  color: #17100a;
 }
 
 .button-secondary {
-  background: rgba(244, 234, 216, 0.08);
+  background: rgba(247, 234, 208, 0.08);
   color: var(--ink);
 }
 
@@ -241,12 +285,12 @@ h3 {
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: min(var(--max), calc(100% - 36px));
-  margin: 0 auto 26px;
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto 28px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: rgba(12, 10, 8, 0.54);
-  backdrop-filter: blur(12px);
+  background: rgba(11, 9, 8, 0.58);
+  backdrop-filter: blur(14px);
 }
 
 .hero-strip div {
@@ -269,186 +313,296 @@ h3 {
   display: block;
   margin-top: 2px;
   overflow-wrap: anywhere;
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: 17px;
 }
 
 .section {
-  padding: clamp(72px, 10vw, 128px) 0;
+  padding: 104px 0;
 }
 
 .section-inner {
-  width: min(var(--max), calc(100% - 36px));
+  width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
 }
 
 .section-heading {
-  max-width: 780px;
+  max-width: 790px;
   margin-bottom: 34px;
 }
 
-.section p {
-  color: var(--muted);
+.section-heading.wide {
+  max-width: 940px;
 }
 
-.intro {
-  background: var(--stone);
-}
-
-.intro-grid {
+.split {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(28px, 6vw, 76px);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 72px;
   align-items: start;
 }
 
-.intro-grid p:last-child {
+.copy-block h2 {
   margin-bottom: 0;
+}
+
+.text-stack p,
+.feature-copy p,
+.portal-copy p,
+.cta-inner p {
   font-size: 18px;
 }
 
-.loop-section {
-  background:
-    radial-gradient(circle at 15% 10%, rgba(169, 77, 53, 0.22), transparent 28%),
-    linear-gradient(180deg, #0c0a08 0%, #15100d 100%);
-}
-
-.loop-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.loop-card,
-.world-layout article,
-.faction-list article {
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: rgba(244, 234, 216, 0.045);
-}
-
-.loop-card {
-  min-height: 272px;
-  padding: 24px;
-}
-
+.text-stack p:last-child,
+.feature-copy p:last-child,
+.portal-copy p:last-child,
 .loop-card p,
-.world-layout p,
-.faction-list p {
+.pillar-grid p,
+.deity-card p,
+.chapter-list p {
   margin-bottom: 0;
 }
 
+.world-intro {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(76, 148, 120, 0.18), transparent 28%),
+    linear-gradient(180deg, #14100e 0%, #1b1511 100%);
+}
+
+.threat {
+  background: #0d0b0a;
+}
+
+.pillar-grid,
+.deity-grid,
+.loop-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pillar-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pillar-grid article,
+.deity-card,
+.loop-card,
+.portal-steps article,
+.chapter-list article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(247, 234, 208, 0.045);
+}
+
+.pillar-grid article {
+  min-height: 226px;
+  padding: 24px;
+}
+
+.pillar-index,
 .step-number {
   display: inline-block;
-  margin-bottom: 38px;
+  margin-bottom: 34px;
   color: var(--gold);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 36px;
+  font-size: 34px;
 }
 
-.relics {
-  background: #100d0b;
+.deities {
+  background:
+    linear-gradient(180deg, rgba(20, 16, 14, 0.96), rgba(11, 9, 8, 0.96)),
+    url("assets/images/promotional/dunhuang-four-deities-endgame-portal.png");
+  background-size: cover;
+  background-position: center;
 }
 
-.relics-grid {
+.deity-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.deity-card {
+  position: relative;
+  min-height: 306px;
+  overflow: hidden;
+  padding: 26px;
+  background: rgba(11, 9, 8, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.deity-card::before {
+  position: absolute;
+  inset: auto 18px 18px auto;
+  width: 72px;
+  height: 72px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.16;
+  content: "";
+}
+
+.deity-symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 36px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.deity-card strong {
+  display: block;
+  margin-top: 22px;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.deity-wind {
+  color: #8fd3b6;
+}
+
+.deity-rain {
+  color: #88d4df;
+}
+
+.deity-thunder {
+  color: #f0ce6d;
+}
+
+.deity-lightning {
+  color: #ffe28a;
+}
+
+.thunder-feature {
+  background: var(--stone);
+}
+
+.feature-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(32px, 6vw, 74px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 58px;
   align-items: center;
 }
 
-.relic-art {
+.feature-media {
+  margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #080605;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: #090706;
+  box-shadow: 0 22px 60px var(--shadow);
 }
 
-.relic-art img {
+.feature-media img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
-.relic-copy p {
-  font-size: 17px;
-}
-
-.risk-list {
+.ability-list {
   margin-top: 28px;
   border-top: 1px solid var(--line);
 }
 
-.risk-row {
+.ability-list div {
   display: grid;
-  grid-template-columns: minmax(118px, 0.42fr) minmax(0, 1fr);
+  grid-template-columns: minmax(118px, 0.34fr) minmax(0, 1fr);
   gap: 18px;
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.risk-row span {
+.ability-list span,
+.chapter-list span {
   color: var(--gold);
-  font-weight: 700;
+  font-weight: 800;
 }
 
-.risk-row strong {
+.ability-list strong {
   color: var(--ink);
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 650;
 }
 
-.world {
-  background-image:
-    linear-gradient(rgba(12, 10, 8, 0.84), rgba(12, 10, 8, 0.9)),
-    url("assets/images/fresco-chamber-combat.png");
-  background-attachment: fixed;
+.portal {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(11, 9, 8, 0.94), rgba(11, 9, 8, 0.68), rgba(11, 9, 8, 0.28)),
+    url("assets/images/promotional/dunhuang-four-deities-endgame-portal.png");
   background-size: cover;
   background-position: center;
 }
 
-.world-layout {
+.portal-layout {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 54px;
+  align-items: center;
 }
 
-.world-layout article {
-  min-height: 210px;
-  padding: 22px;
-  background: rgba(12, 10, 8, 0.72);
-  backdrop-filter: blur(12px);
-}
-
-.world-layout article:nth-child(2) {
-  border-color: rgba(210, 169, 93, 0.45);
-}
-
-.world-layout article:nth-child(3) {
-  border-color: rgba(66, 128, 107, 0.5);
-}
-
-.factions {
-  background: var(--stone-2);
-}
-
-.faction-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(28px, 6vw, 70px);
-}
-
-.faction-list {
+.portal-steps {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
-.faction-list article {
+.portal-steps article {
+  min-height: 176px;
   padding: 22px;
+  background: rgba(11, 9, 8, 0.68);
+  backdrop-filter: blur(10px);
+}
+
+.portal-steps span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #17100a;
+  font-weight: 900;
+}
+
+.loop-section {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(182, 83, 55, 0.22), transparent 30%),
+    radial-gradient(circle at 88% 0%, rgba(51, 112, 141, 0.18), transparent 28%),
+    linear-gradient(180deg, #0b0908 0%, #17110e 100%);
+}
+
+.loop-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.loop-card {
+  min-height: 268px;
+  padding: 24px;
+}
+
+.narrative {
+  background: var(--stone-2);
+}
+
+.chapter-list {
+  display: grid;
+  gap: 12px;
+}
+
+.chapter-list article {
+  padding: 20px 22px;
+}
+
+.chapter-list span {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .gallery {
-  background: #0b0908;
+  background: #090706;
 }
 
 .gallery-heading {
@@ -456,7 +610,12 @@ h3 {
   align-items: end;
   justify-content: space-between;
   gap: 24px;
-  max-width: none;
+  margin-bottom: 30px;
+}
+
+.gallery-heading h2 {
+  max-width: 760px;
+  margin-bottom: 0;
 }
 
 .gallery-controls {
@@ -468,9 +627,10 @@ h3 {
 
 .gallery-controls button {
   min-height: 38px;
+  padding: 8px 13px;
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: rgba(244, 234, 216, 0.05);
+  background: rgba(247, 234, 208, 0.05);
   color: var(--muted);
   cursor: pointer;
   font: inherit;
@@ -482,22 +642,28 @@ h3 {
 .gallery-controls button:focus-visible,
 .gallery-controls button.is-active {
   border-color: var(--gold);
-  background: rgba(210, 169, 93, 0.16);
+  background: rgba(225, 180, 95, 0.16);
   color: var(--ink);
 }
 
 .gallery-frame {
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
   background: #050403;
+  box-shadow: 0 22px 64px var(--shadow);
 }
 
 .gallery-frame img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+.gallery-frame img.is-contain {
+  object-fit: contain;
+  background: #11100f;
 }
 
 .gallery-frame figcaption {
@@ -510,27 +676,52 @@ h3 {
   position: relative;
   overflow: hidden;
   background-image:
-    linear-gradient(90deg, rgba(12, 10, 8, 0.92), rgba(12, 10, 8, 0.62)),
-    url("assets/images/mural-gate-extraction.png");
+    linear-gradient(90deg, rgba(11, 9, 8, 0.94), rgba(11, 9, 8, 0.64), rgba(11, 9, 8, 0.28)),
+    url("assets/images/promotional/dunhuang-thunder-portal-keyart.png");
   background-size: cover;
   background-position: center;
 }
 
 .cta-inner {
   max-width: 780px;
-  margin-left: max(18px, calc((100% - var(--max)) / 2));
-}
-
-.cta-inner p {
-  max-width: 650px;
-  font-size: 18px;
+  margin-left: max(20px, calc((100% - var(--max)) / 2));
 }
 
 .cta-inner .button {
   margin-top: 12px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
+  .site-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  h1 {
+    font-size: 72px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .deity-grid,
+  .loop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .split,
+  .feature-grid,
+  .portal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    gap: 34px;
+  }
+}
+
+@media (max-width: 760px) {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
@@ -540,30 +731,69 @@ h3 {
 
   .site-nav {
     width: 100%;
-    justify-content: space-between;
-    gap: 8px;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
 
   .hero {
-    min-height: 92svh;
+    min-height: 90svh;
   }
 
   .hero-content {
-    width: min(100% - 36px, 700px);
-    padding-top: 146px;
-    padding-bottom: 90px;
+    width: calc(100vw - 32px);
+    max-width: 640px;
+    padding-top: 142px;
+    padding-bottom: 72px;
+  }
+
+  h1 {
+    font-size: 54px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .hero-copy,
+  .text-stack p,
+  .feature-copy p,
+  .portal-copy p,
+  .cta-inner p {
+    font-size: 16px;
+    word-break: break-all;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-inner,
+  .hero-strip {
+    width: calc(100vw - 32px);
+    max-width: var(--max);
   }
 
   .hero-strip,
-  .intro-grid,
-  .relics-grid,
-  .faction-grid {
+  .pillar-grid,
+  .deity-grid,
+  .loop-grid,
+  .portal-steps {
     grid-template-columns: 1fr;
   }
 
-  .loop-grid,
-  .world-layout {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .hero-strip div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-strip div:last-child {
+    border-bottom: 0;
+  }
+
+  .hero-actions,
+  .button {
+    width: 100%;
   }
 
   .gallery-heading {
@@ -572,49 +802,38 @@ h3 {
   }
 
   .gallery-controls {
-    justify-content: flex-start;
-  }
-
-  .world {
-    background-attachment: scroll;
-  }
-}
-
-@media (max-width: 620px) {
-  .hero-content {
-    padding-bottom: 72px;
-  }
-
-  .hero-actions,
-  .button {
     width: 100%;
-  }
-
-  .hero-strip {
-    margin-bottom: 18px;
-  }
-
-  .hero-strip div {
-    padding: 12px;
-  }
-
-  .loop-grid,
-  .world-layout,
-  .faction-list {
-    grid-template-columns: 1fr;
-  }
-
-  .loop-card,
-  .world-layout article {
-    min-height: auto;
-  }
-
-  .risk-row {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    justify-content: flex-start;
   }
 
   .gallery-controls button {
     flex: 1 1 calc(50% - 8px);
+  }
+
+  .ability-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 460px) {
+  .brand {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 46px;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+
+  .pillar-grid article,
+  .deity-card,
+  .loop-card,
+  .portal-steps article {
+    min-height: auto;
+    padding: 20px;
   }
 }
