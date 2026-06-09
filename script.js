@@ -14,7 +14,7 @@ const videos = [
   {
     src: "assets/videos/mingsha-gate-playable-demo-delivery.mp4",
     poster: "assets/videos/mingsha-gate-playable-demo-poster.jpg",
-    caption: "清晰版玩法演示：大字号字幕、低字量信息卡、按章节展示最新一局闭环。"
+    caption: "清晰版玩法演示：大字号字幕、低字量信息卡、按章节展示三人小队一局闭环。"
   },
   {
     src: "assets/videos/mingsha-gate-sound-gameplay-demo-delivery.mp4",
