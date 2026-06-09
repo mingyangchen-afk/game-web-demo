@@ -278,7 +278,8 @@ p {
 .hero-stats span,
 .asset-card span,
 .feature-art span,
-.loop-list span {
+.loop-list span,
+.node-details summary span {
   display: block;
   color: var(--gold);
   font-size: 13px;
@@ -328,7 +329,8 @@ p {
 .pitch-points article,
 .loop-list article,
 .system-strip article,
-.lore-steps article {
+.lore-steps article,
+.node-details details {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 241, 216, 0.035);
@@ -353,7 +355,8 @@ p {
 .system-strip p,
 .lore-steps p,
 .asset-card p,
-.feature-art p {
+.feature-art p,
+.node-details p {
   margin-bottom: 0;
 }
 
@@ -371,15 +374,12 @@ p {
 }
 
 .play-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 28px;
-  align-items: stretch;
+  display: block;
 }
 
 .loop-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -395,11 +395,23 @@ p {
 }
 
 .node-map {
+  position: relative;
   overflow: hidden;
   margin: 0;
   border: 1px solid var(--line-strong);
   border-radius: 8px;
   background: var(--stone);
+}
+
+.node-map.is-preview {
+  cursor: zoom-in;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.node-map.is-preview:hover,
+.node-map.is-preview:focus-visible {
+  border-color: rgba(231, 185, 91, 0.9);
+  transform: translateY(-2px);
 }
 
 .node-map img {
@@ -425,6 +437,95 @@ p {
 
 .system-strip article {
   padding: 20px;
+}
+
+.node-section {
+  background:
+    linear-gradient(180deg, rgba(7, 6, 5, 0.98), rgba(18, 15, 12, 0.96)),
+    url("assets/images/campaign/three-hares-portal-relic.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.node-module {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.node-module .node-map {
+  background: rgba(7, 6, 5, 0.78);
+}
+
+.node-module .node-map img {
+  min-height: 560px;
+  object-fit: contain;
+  background:
+    radial-gradient(circle at 52% 46%, rgba(231, 185, 91, 0.14), transparent 48%),
+    #080706;
+}
+
+.node-details {
+  display: grid;
+  gap: 10px;
+}
+
+.node-details details {
+  overflow: hidden;
+  background: rgba(7, 6, 5, 0.72);
+}
+
+.node-details summary {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 24px;
+  gap: 12px;
+  align-items: center;
+  min-height: 58px;
+  padding: 14px 18px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 900;
+  list-style: none;
+}
+
+.node-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.node-details summary::after {
+  justify-self: end;
+  color: var(--gold);
+  content: "+";
+}
+
+.node-details details[open] summary::after {
+  content: "−";
+}
+
+.node-details details[open] {
+  border-color: var(--line-strong);
+  background: rgba(20, 15, 11, 0.86);
+}
+
+.node-details details > p {
+  padding: 0 18px 14px 72px;
+}
+
+.node-meta {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px;
+  margin: 0 18px 18px 72px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.node-meta strong {
+  color: var(--malachite);
 }
 
 .world-section {
@@ -497,7 +598,8 @@ p {
 }
 
 .asset-filters,
-.video-switcher {
+.video-switcher,
+.video-chapters {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
@@ -505,6 +607,7 @@ p {
 
 .asset-filters button,
 .video-switcher button,
+.video-chapters button,
 .modal-close {
   min-height: 38px;
   padding: 8px 13px;
@@ -522,6 +625,24 @@ p {
 .video-switcher button.is-active {
   border-color: var(--gold);
   background: rgba(231, 185, 91, 0.18);
+  color: var(--ink);
+}
+
+.video-chapters {
+  margin-top: 16px;
+}
+
+.video-chapters button {
+  border-color: rgba(79, 176, 142, 0.36);
+  background: rgba(79, 176, 142, 0.08);
+  color: #d8eadf;
+}
+
+.video-chapters button:hover,
+.video-chapters button:focus-visible,
+.video-chapters button.is-active {
+  border-color: var(--malachite);
+  background: rgba(79, 176, 142, 0.18);
   color: var(--ink);
 }
 
@@ -649,9 +770,9 @@ p {
   }
 
   .intro-grid,
-  .play-layout,
   .world-panel,
-  .videos-layout {
+  .videos-layout,
+  .node-module {
     grid-template-columns: 1fr;
   }
 
@@ -663,6 +784,10 @@ p {
   .loop-list,
   .system-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .node-module .node-map img {
+    min-height: 440px;
   }
 
   .asset-heading {
@@ -751,6 +876,25 @@ p {
 
   .asset-card img {
     height: 250px;
+  }
+
+  .node-module .node-map img {
+    min-height: 300px;
+  }
+
+  .node-details summary {
+    grid-template-columns: 34px minmax(0, 1fr) 24px;
+    padding: 13px 14px;
+  }
+
+  .node-details details > p,
+  .node-meta {
+    margin-left: 48px;
+    padding-left: 0;
+  }
+
+  .node-meta {
+    grid-template-columns: 1fr;
   }
 }
 

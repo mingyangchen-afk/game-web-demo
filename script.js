@@ -1,10 +1,12 @@
 const header = document.querySelector("[data-header]");
 const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
 const artworkItems = Array.from(document.querySelectorAll("[data-kind]"));
+const previewItems = Array.from(document.querySelectorAll("[data-full]"));
 const modal = document.querySelector("[data-modal]");
 const modalImage = document.querySelector("[data-modal-image]");
 const modalClose = document.querySelector("[data-modal-close]");
 const videoButtons = Array.from(document.querySelectorAll("[data-video]"));
+const chapterButtons = Array.from(document.querySelectorAll("[data-chapter]"));
 const featureVideo = document.querySelector("[data-feature-video]");
 const featureCaption = document.querySelector("[data-feature-caption]");
 
@@ -12,7 +14,7 @@ const videos = [
   {
     src: "assets/videos/mingsha-gate-playable-demo-delivery.mp4",
     poster: "assets/videos/mingsha-gate-playable-demo-poster.jpg",
-    caption: "玩法演示：入局准备、听声探索、遗物风险、雷鼓遭遇、三兔撤离与结算。"
+    caption: "清晰版玩法演示：大字号字幕、低字量信息卡、按章节展示最新一局闭环。"
   },
   {
     src: "assets/videos/mingsha-gate-sound-gameplay-demo-delivery.mp4",
@@ -43,7 +45,7 @@ const setFilter = (kind) => {
   });
 };
 
-const showArtwork = (item) => {
+const showPreview = (item) => {
   const src = item.dataset.full;
   const img = item.querySelector("img");
   if (!src || !img || !modal || !modalImage) return;
@@ -60,6 +62,7 @@ const setVideo = (index) => {
   featureVideo.pause();
   featureVideo.src = item.src;
   featureVideo.poster = item.poster;
+  featureVideo.dataset.activeVideo = String(index);
   featureCaption.textContent = item.caption;
   featureVideo.load();
 
@@ -68,25 +71,56 @@ const setVideo = (index) => {
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   });
+
+  if (index !== 0) {
+    chapterButtons.forEach((button) => button.classList.remove("is-active"));
+  }
+};
+
+const jumpToChapter = (seconds) => {
+  if (!featureVideo) return;
+
+  const seek = () => {
+    featureVideo.currentTime = seconds;
+    featureVideo.play().catch(() => {});
+  };
+
+  if (featureVideo.dataset.activeVideo !== "0") {
+    setVideo(0);
+    featureVideo.addEventListener("loadedmetadata", seek, { once: true });
+  } else if (featureVideo.readyState >= 1) {
+    seek();
+  } else {
+    featureVideo.addEventListener("loadedmetadata", seek, { once: true });
+  }
+
+  chapterButtons.forEach((button) => {
+    const active = Number(button.dataset.chapter) === seconds;
+    button.classList.toggle("is-active", active);
+  });
 };
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => setFilter(button.dataset.filter));
 });
 
-artworkItems.forEach((item) => {
+previewItems.forEach((item) => {
   item.tabIndex = 0;
-  item.addEventListener("click", () => showArtwork(item));
+  item.addEventListener("click", () => showPreview(item));
   item.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      showArtwork(item);
+      showPreview(item);
     }
   });
 });
 
 videoButtons.forEach((button) => {
   button.addEventListener("click", () => setVideo(Number(button.dataset.video)));
+});
+
+chapterButtons.forEach((button) => {
+  button.addEventListener("click", () => jumpToChapter(Number(button.dataset.chapter)));
 });
 
 modalClose?.addEventListener("click", () => modal.close());
