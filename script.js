@@ -1,4 +1,8 @@
 const header = document.querySelector("[data-header]");
+const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
+const navTargets = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
 const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
 const artworkItems = Array.from(document.querySelectorAll("[data-kind]"));
 const previewItems = Array.from(document.querySelectorAll("[data-full]"));
@@ -7,14 +11,21 @@ const modalImage = document.querySelector("[data-modal-image]");
 const modalClose = document.querySelector("[data-modal-close]");
 const videoButtons = Array.from(document.querySelectorAll("[data-video]"));
 const chapterButtons = Array.from(document.querySelectorAll("[data-chapter]"));
+const chapterPanel = document.querySelector(".video-chapters");
 const featureVideo = document.querySelector("[data-feature-video]");
 const featureCaption = document.querySelector("[data-feature-caption]");
 
 const videos = [
   {
+    src: "https://github.com/mingyangchen-afk/game-web-demo/releases/download/site-media/garena-seedance-gold-sutra-cg-trailer-bilingual.mp4",
+    poster: "assets/images/campaign/mural-threshold-extraction.png",
+    caption: "CG 双语预告片：先建立金经、黑沙、雷鼓与三兔门的世界观情绪。"
+  },
+  {
     src: "assets/videos/mingsha-gate-playable-demo-delivery.mp4",
     poster: "assets/videos/mingsha-gate-playable-demo-poster.jpg",
-    caption: "清晰版玩法演示：大字号字幕、低字量信息卡、按章节展示三人小队一局闭环。"
+    caption: "清晰版玩法演示：大字号字幕、低字量信息卡、按章节展示三人小队一局闭环。",
+    chapters: true
   },
   {
     src: "assets/videos/mingsha-gate-sound-gameplay-demo-delivery.mp4",
@@ -30,6 +41,18 @@ const videos = [
 
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 8);
+};
+
+const setActiveNav = (id) => {
+  navLinks.forEach((link) => {
+    const active = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("is-active", active);
+    if (active) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 };
 
 const setFilter = (kind) => {
@@ -72,21 +95,26 @@ const setVideo = (index) => {
     button.setAttribute("aria-pressed", String(active));
   });
 
-  if (index !== 0) {
+  const supportsChapters = Boolean(item.chapters);
+  chapterPanel?.classList.toggle("is-muted", !supportsChapters);
+  chapterPanel?.setAttribute("data-active-video-has-chapters", String(supportsChapters));
+
+  if (!supportsChapters) {
     chapterButtons.forEach((button) => button.classList.remove("is-active"));
   }
 };
 
 const jumpToChapter = (seconds) => {
   if (!featureVideo) return;
+  const chapterVideoIndex = videos.findIndex((item) => item.chapters);
 
   const seek = () => {
     featureVideo.currentTime = seconds;
     featureVideo.play().catch(() => {});
   };
 
-  if (featureVideo.dataset.activeVideo !== "0") {
-    setVideo(0);
+  if (featureVideo.dataset.activeVideo !== String(chapterVideoIndex)) {
+    setVideo(chapterVideoIndex);
     featureVideo.addEventListener("loadedmetadata", seek, { once: true });
   } else if (featureVideo.readyState >= 1) {
     seek();
@@ -106,6 +134,7 @@ filterButtons.forEach((button) => {
 
 previewItems.forEach((item) => {
   item.tabIndex = 0;
+  item.setAttribute("role", "button");
   item.addEventListener("click", () => showPreview(item));
   item.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -129,6 +158,40 @@ modal?.addEventListener("click", (event) => {
   if (event.target === modal) modal.close();
 });
 
+modal?.addEventListener("close", () => {
+  if (!modalImage) return;
+  modalImage.removeAttribute("src");
+  modalImage.alt = "";
+});
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActiveNav(visible.target.id);
+    },
+    {
+      rootMargin: "-42% 0px -48% 0px",
+      threshold: [0.1, 0.24, 0.4]
+    }
+  );
+
+  navTargets.forEach((section) => observer.observe(section));
+} else {
+  setActiveNav("overview");
+}
+
+const syncNavWithHash = () => {
+  const id = window.location.hash.slice(1);
+  if (id && navTargets.some((target) => target.id === id)) {
+    setActiveNav(id);
+  }
+};
+
+syncNavWithHash();
+window.addEventListener("hashchange", syncNavWithHash);
 window.addEventListener("scroll", setHeaderState, { passive: true });
 setHeaderState();
 setFilter("all");
