@@ -17,9 +17,9 @@ const featureCaption = document.querySelector("[data-feature-caption]");
 
 const videos = [
   {
-    src: "https://github.com/mingyangchen-afk/game-web-demo/releases/download/site-media/garena-seedance-gold-sutra-cg-trailer-bilingual.mp4",
-    poster: "assets/images/campaign/mural-threshold-extraction.png",
-    caption: "CG 双语预告片：先建立金经、黑沙、雷鼓与三兔门的世界观情绪。"
+    src: "assets/videos/mingsha-cinematic-trailer-20260621.mp4",
+    poster: "assets/images/showcase/mingsha-hero-v3.png",
+    caption: "最新动态预告：以大面积视频承接黑沙遗址、三兔门、雷鼓压迫和小队撤离情绪。"
   },
   {
     src: "assets/videos/mingsha-gate-playable-demo-delivery.mp4",

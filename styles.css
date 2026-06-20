@@ -13,7 +13,7 @@
   --malachite: #4fb08e;
   --azurite: #4d8fbc;
   --panel: rgba(12, 10, 8, 0.74);
-  --max: 1180px;
+  --max: 1240px;
 }
 
 * {
@@ -172,22 +172,40 @@ a {
 }
 
 .hero-media img {
+  position: absolute;
+  inset: 0;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
+.hero-video-bg {
+  background: #050403;
+}
+
+.hero-video-bg video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.9;
+}
+
 .hero-shade {
+  z-index: 2;
   background:
-    linear-gradient(90deg, rgba(7, 6, 5, 0.96) 0%, rgba(7, 6, 5, 0.78) 40%, rgba(7, 6, 5, 0.2) 100%),
+    radial-gradient(circle at 74% 36%, rgba(231, 185, 91, 0.18), transparent 34%),
+    linear-gradient(90deg, rgba(7, 6, 5, 0.94) 0%, rgba(7, 6, 5, 0.68) 40%, rgba(7, 6, 5, 0.12) 100%),
     linear-gradient(0deg, rgba(7, 6, 5, 0.98) 0%, rgba(7, 6, 5, 0.18) 46%, rgba(7, 6, 5, 0.42) 100%);
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.62fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.8fr);
   gap: 42px;
   align-items: end;
   width: min(var(--max), calc(100% - 64px));
@@ -380,7 +398,7 @@ p {
 
 .hero-stats {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   width: min(var(--max), calc(100% - 64px));
@@ -488,14 +506,14 @@ p {
   padding-top: 88px;
   background:
     linear-gradient(180deg, rgba(7, 6, 5, 0.98), rgba(15, 12, 9, 0.96)),
-    url("assets/images/campaign/mural-threshold-extraction.png");
+    url("assets/images/showcase/mingsha-hero-v3.png");
   background-position: center;
   background-size: cover;
 }
 
 .trailer-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(300px, 0.52fr) minmax(0, 1.48fr);
   gap: 38px;
   align-items: center;
 }
@@ -546,6 +564,8 @@ p {
 .trailer-player video {
   aspect-ratio: 16 / 9;
   background: #000;
+  min-height: min(62vh, 680px);
+  object-fit: cover;
 }
 
 .trailer-player figcaption {
@@ -1049,7 +1069,7 @@ p {
 
 .feature-gallery {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+  grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(0, 0.72fr));
   gap: 14px;
   margin-bottom: 14px;
 }
@@ -1138,14 +1158,14 @@ p {
 .videos-section {
   background:
     linear-gradient(180deg, rgba(7, 6, 5, 0.92), rgba(12, 20, 17, 0.94)),
-    url("assets/images/campaign/dunhuang-thunder-god-keyart.png");
+    url("assets/images/showcase/mingsha-hero-v3.png");
   background-position: center;
   background-size: cover;
 }
 
 .videos-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(280px, 0.5fr) minmax(0, 1.5fr);
   gap: 36px;
   align-items: center;
 }
@@ -1161,6 +1181,8 @@ p {
 .video-stage video {
   aspect-ratio: 16 / 9;
   background: #000;
+  min-height: min(64vh, 720px);
+  object-fit: cover;
 }
 
 .final-cta {
@@ -1309,6 +1331,11 @@ p {
     align-items: start;
     gap: 28px;
     padding-bottom: 48px;
+  }
+
+  .trailer-player video,
+  .video-stage video {
+    min-height: auto;
   }
 
   .hero-trailer-card {
