@@ -19,7 +19,7 @@ const videos = [
   {
     src: "assets/videos/mingsha-cinematic-trailer-20260621.mp4",
     poster: "assets/images/showcase/mingsha-hero-v3.png",
-    caption: "最新动态预告：以大面积视频承接黑沙遗址、三兔门、雷鼓压迫和小队撤离情绪。"
+    caption: "最新动态预告：黑沙遗址、三兔门、雷鼓压迫和小队撤离。"
   },
   {
     src: "assets/videos/mingsha-gate-playable-demo-delivery.mp4",
@@ -35,7 +35,7 @@ const videos = [
   {
     src: "assets/videos/mingsha-gate-showcase-production-video-delivery.mp4",
     poster: "assets/videos/mingsha-gate-showcase-production-video-poster.png",
-    caption: "制作拆解：核心公式、一局循环、节点任务和制作优先级。"
+    caption: "系统拆解：核心公式、一局循环、风险收益和三兔门撤离。"
   }
 ];
 
