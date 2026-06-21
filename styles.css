@@ -635,6 +635,93 @@ p {
   font-size: 14px;
 }
 
+.art-preview-section {
+  padding: 92px 0;
+  background:
+    linear-gradient(180deg, rgba(10, 8, 7, 0.98), rgba(18, 14, 10, 0.96)),
+    url("assets/images/promotional/dunhuang-thunder-portal-keyart.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.art-preview-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.48fr) minmax(0, 1.52fr);
+  gap: 28px;
+  align-items: end;
+}
+
+.art-preview-layout .section-heading {
+  margin-bottom: 0;
+}
+
+.art-preview-layout h2 {
+  font-size: clamp(32px, 2.7vw, 44px);
+}
+
+.art-preview-layout .button {
+  margin-top: 10px;
+}
+
+.art-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.art-preview-grid article {
+  position: relative;
+  overflow: hidden;
+  min-height: 390px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(7, 6, 5, 0.72);
+  cursor: zoom-in;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.art-preview-grid article:hover,
+.art-preview-grid article:focus-within {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.art-preview-grid img {
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+}
+
+.art-preview-grid div {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 18px;
+  background: linear-gradient(0deg, rgba(7, 6, 5, 0.94), rgba(7, 6, 5, 0));
+}
+
+.art-preview-grid span {
+  display: block;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.art-preview-grid strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.24;
+}
+
+.art-preview-grid p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 .intro-section {
   background: linear-gradient(180deg, #0b0a08 0%, #13100d 100%);
 }
@@ -1046,6 +1133,42 @@ p {
   font-weight: 900;
 }
 
+.lore-detail {
+  max-width: 720px;
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(7, 6, 5, 0.58);
+}
+
+.lore-detail summary {
+  padding: 14px 16px;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 900;
+  list-style: none;
+}
+
+.lore-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.lore-detail summary::after {
+  float: right;
+  color: var(--gold);
+  content: "+";
+}
+
+.lore-detail[open] summary::after {
+  content: "−";
+}
+
+.lore-detail p {
+  margin: 0;
+  padding: 0 16px 16px;
+  font-size: 15px;
+}
+
 .art-section {
   background: linear-gradient(180deg, #0a0908 0%, #15100d 100%);
 }
@@ -1360,6 +1483,7 @@ p {
   .intro-grid,
   .hero-content,
   .trailer-layout,
+  .art-preview-layout,
   .world-panel,
   .videos-layout,
   .node-module,
@@ -1405,6 +1529,10 @@ p {
 
   .feature-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .art-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .asset-grid,
@@ -1491,6 +1619,7 @@ p {
   }
 
   .hero-stats,
+  .art-preview-grid,
   .asset-grid,
   .loop-list,
   .system-strip,

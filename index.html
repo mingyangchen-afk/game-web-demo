@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="assets/images/brand/three-hares-silk-road-logo.svg" type="image/svg+xml">
     <link rel="preload" href="assets/images/showcase/mingsha-hero-v3.png" as="image">
-    <link rel="stylesheet" href="styles.css?v=20260621-game-structure">
+    <link rel="stylesheet" href="styles.css?v=20260621-fast-read">
   </head>
   <body>
     <header class="site-header" data-header>
@@ -30,11 +30,10 @@
       </a>
       <nav class="site-nav" aria-label="主要导航">
         <a href="#trailer">预告</a>
+        <a href="#art-preview">美术</a>
         <a href="#gameplay">玩法</a>
-        <a href="#squad">小队</a>
         <a href="#world">世界</a>
-        <a href="#art">美术</a>
-        <a href="#videos">影像</a>
+        <a href="#nodes">资料</a>
       </nav>
       <a class="header-cta" href="#trailer">播放预告</a>
     </header>
@@ -101,29 +100,6 @@
         </div>
       </section>
 
-      <section class="press-strip" aria-label="核心宣传卖点">
-        <a href="#features">
-          <span>01</span>
-          <strong>三兔共耳识别</strong>
-          <p>把丝路纹样转译为门区、钥印和撤离规则。</p>
-        </a>
-        <a href="#gameplay">
-          <span>02</span>
-          <strong>听声搜打撤</strong>
-          <p>以声音辨位替代重 UI，形成紧张但易懂的一局循环。</p>
-        </a>
-        <a href="#squad">
-          <span>03</span>
-          <strong>三人自然分工</strong>
-          <p>不绑职业，围绕标记、搜物、守门即时协作。</p>
-        </a>
-        <a href="#art">
-          <span>04</span>
-          <strong>黑沙美术矩阵</strong>
-          <p>场景、角色、怪物、机关、遗物共同构成暗黑敦煌幻想。</p>
-        </a>
-      </section>
-
       <section class="section trailer-section" id="trailer" aria-labelledby="trailer-title">
         <div class="section-inner trailer-layout">
           <div class="trailer-copy">
@@ -159,13 +135,65 @@
         </div>
       </section>
 
+      <section class="section art-preview-section" id="art-preview" aria-labelledby="art-preview-title">
+        <div class="section-inner art-preview-layout">
+          <div class="section-heading">
+            <p class="section-kicker">Visual First</p>
+            <h2 id="art-preview-title">四张图看懂玩法。</h2>
+            <p>进门、敌人、雷鼓、撤离：玩家看到画面，就知道自己要去哪、会被什么追、如何抢窗口、最后从哪里撤。</p>
+            <a class="button button-secondary" href="#art">查看完整美术库</a>
+          </div>
+          <div class="art-preview-grid">
+            <article data-kind="scene" data-full="assets/images/showcase/mingsha-hero-v3.png">
+              <img src="assets/images/showcase/mingsha-hero-v3.png" alt="三人小队逼近三兔壁画门的宣传主视觉" loading="lazy" decoding="async">
+              <div><span>进门</span><strong>黑沙遗址入口</strong><p>三人小队逼近三兔门。</p></div>
+            </article>
+            <article data-kind="enemy" data-full="assets/images/showcase/mingsha-enemies-nonboss-v3.png">
+              <img src="assets/images/showcase/mingsha-enemies-nonboss-v3.png" alt="鸣沙之门非 BOSS 敌人设定图" loading="lazy" decoding="async">
+              <div><span>敌人</span><strong>非 BOSS 敌人谱系</strong><p>巡游、追击、干扰听声。</p></div>
+            </article>
+            <article data-kind="mechanism" data-full="assets/images/promotional/dunhuang-thunder-drum-gameplay.png">
+              <img src="assets/images/promotional/dunhuang-thunder-drum-gameplay.png" alt="雷鼓窟战斗玩法宣传图" loading="lazy" decoding="async">
+              <div><span>抢窗口</span><strong>雷鼓窟战斗</strong><p>击鼓破盾，立刻推进。</p></div>
+            </article>
+            <article data-kind="portal" data-full="assets/images/promotional/dunhuang-four-deities-endgame-portal.png">
+              <img src="assets/images/promotional/dunhuang-four-deities-endgame-portal.png" alt="风雨雷电四神终局传送门宣传图" loading="lazy" decoding="async">
+              <div><span>撤离</span><strong>四神终局门</strong><p>守住三段共鸣后撤出。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="press-strip" aria-label="核心宣传卖点">
+        <a href="#trailer">
+          <span>01</span>
+          <strong>先看预告</strong>
+          <p>黑沙、雷鼓、三兔门在一分钟内建立第一印象。</p>
+        </a>
+        <a href="#art-preview">
+          <span>02</span>
+          <strong>再看美术</strong>
+          <p>主视觉、敌人、机关、终局门直接说明玩法压力。</p>
+        </a>
+        <a href="#gameplay">
+          <span>03</span>
+          <strong>理解循环</strong>
+          <p>听声、搜物、击鼓、守门、撤离，六步完成一局。</p>
+        </a>
+        <a href="#nodes">
+          <span>04</span>
+          <strong>展开资料</strong>
+          <p>详细节点、世界观和系统说明放到后段按需查看。</p>
+        </a>
+      </section>
+
       <section class="section intro-section" id="overview" aria-labelledby="overview-title">
         <div class="section-inner intro-grid">
           <div class="section-copy">
             <p class="section-kicker">Game Pitch</p>
-            <h2 id="overview-title">把“敦煌壁画探险”压缩成一条清晰可执行的搜打撤闭环。</h2>
+            <h2 id="overview-title">30 秒理解：听声找宝，变重变响，击鼓开路，从门撤离。</h2>
             <p>
-              玩家不需要理解复杂职业协作，只要在一局内完成三件事：听出价值的位置，判断该拿多少，带着队友从门里撤出去。雷神、黑沙、三兔共耳和壁画宝物都服务于这个闭环。
+              玩家只做三件事：找价值、控风险、全员撤离。复杂设定都转译成可看、可听、可决策的局内压力。
             </p>
           </div>
           <div class="pitch-points">
@@ -269,9 +297,7 @@
           <div class="squad-copy">
             <p class="section-kicker">3-Player Squad</p>
             <h2 id="squad-title">不做复杂职业系统，让三人围绕局内目标自然配合。</h2>
-            <p>
-              玩法目标从“四神复杂协作”收束为三种临场职责。任何玩家都能临时切换职责，方便收打撤节奏、语音沟通和新手理解。
-            </p>
+            <p>三人不锁职业，只围绕局内目标临时分工：给方向、做取舍、抢窗口。</p>
             <div class="squad-roles">
               <article><span>听声标记者</span><strong>给方向</strong><p>判断铜铃、脚步与壁面回响，标出遗物和危险。</p></article>
               <article><span>搜物搬运者</span><strong>做取舍</strong><p>管理背包和负重，决定保留、交换或丢弃宝物。</p></article>
@@ -301,7 +327,7 @@
             </figure>
 
             <div class="node-details" aria-label="核心玩法节点详细拆解">
-              <details open>
+              <details>
                 <summary><span>01</span>入局准备</summary>
                 <p>玩家选择路线、背包容量、初始工具和撤离目标。系统给出本局危险区、出生点、门区条件和预期收益。</p>
                 <div class="node-meta"><strong>局内压力</strong><span>路线、出生点、背包容量和撤离目标决定本局风险。</span></div>
@@ -344,9 +370,11 @@
           <div class="section-copy">
             <p class="section-kicker">World & Motif</p>
             <h2 id="world-title">三兔共耳从壁画纹样变成玩家寻找出口的世界规则。</h2>
-            <p>
-              敦煌三兔共耳与欧亚多地三兔纹样共享“追逐成环、三耳成三角”的图像结构。游戏中，这个纹样不以说明牌出现，而是被转译为壁画门、兔耳印、声音共鸣和宝物图案：玩家看到它，就知道这里牵连着方向、循环和撤离时机。
-            </p>
+            <p>三兔共耳在游戏里不是说明牌，而是玩家一眼能懂的出口信号：兔耳印、壁画门、三段共鸣都指向撤离。</p>
+            <details class="lore-detail">
+              <summary>展开纹样设定</summary>
+              <p>敦煌三兔共耳与欧亚多地三兔纹样共享“追逐成环、三耳成三角”的结构。游戏把它转译为门区、钥印、声音共鸣和宝物图案，帮助玩家把文化符号直接记成玩法规则。</p>
+            </details>
           </div>
           <div class="lore-steps">
             <article><span>敦煌藻井</span><p>天顶纹样记录三兔旋转，像一扇向上的门。</p></article>
@@ -530,6 +558,6 @@
       <img data-modal-image alt="">
     </dialog>
 
-    <script src="script.js?v=20260621-game-structure"></script>
+    <script src="script.js?v=20260621-fast-read"></script>
   </body>
 </html>
