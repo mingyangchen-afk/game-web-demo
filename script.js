@@ -11,7 +11,13 @@ const modalImage = document.querySelector("[data-modal-image]");
 const modalClose = document.querySelector("[data-modal-close]");
 const heroVideo = document.querySelector("[data-hero-video]");
 const heroToggle = document.querySelector("[data-hero-toggle]");
+const heroVideoFrame = document.querySelector("[data-hero-video-frame]");
+const heroSoundToggle = document.querySelector("[data-hero-sound-toggle]");
+const heroFullscreenToggle = document.querySelector("[data-hero-fullscreen]");
 const videoMirror = document.querySelector("[data-video-mirror]");
+
+let previewSoundEnabled = false;
+let previewSoundBeforeFullscreen = false;
 
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 8);
@@ -58,6 +64,71 @@ const syncHeroVideoToggle = () => {
   heroToggle.textContent = paused ? "播放" : "暂停";
   heroToggle.classList.toggle("is-paused", paused);
   heroToggle.setAttribute("aria-label", paused ? "播放预告" : "暂停预告");
+};
+
+const syncHeroSoundToggle = () => {
+  if (!heroVideo || !heroSoundToggle) return;
+  const soundOn = !heroVideo.muted && heroVideo.volume > 0;
+  heroSoundToggle.textContent = soundOn ? "静音" : "开声";
+  heroSoundToggle.classList.toggle("is-on", soundOn);
+  heroSoundToggle.setAttribute("aria-pressed", String(soundOn));
+  heroSoundToggle.setAttribute("aria-label", soundOn ? "关闭预览声音" : "开启预览声音");
+};
+
+const setPreviewSound = (enabled) => {
+  if (!heroVideo) return;
+  previewSoundEnabled = enabled;
+  heroVideo.muted = !enabled;
+  if (enabled && heroVideo.volume === 0) {
+    heroVideo.volume = 0.85;
+  }
+  syncHeroSoundToggle();
+};
+
+const getFullscreenElement = () =>
+  document.fullscreenElement ||
+  document.webkitFullscreenElement ||
+  document.mozFullScreenElement ||
+  document.msFullscreenElement;
+
+const restorePreviewAudioState = () => {
+  if (!heroVideo || getFullscreenElement()) return;
+  heroVideo.controls = false;
+  setPreviewSound(previewSoundBeforeFullscreen);
+  syncHeroVideoToggle();
+};
+
+const enterHeroFullscreen = async () => {
+  if (!heroVideo) return;
+
+  previewSoundBeforeFullscreen = previewSoundEnabled;
+  heroVideo.controls = true;
+  heroVideo.muted = false;
+  heroVideo.volume = 1;
+  syncHeroSoundToggle();
+
+  const playPromise = heroVideo.play().catch(() => {});
+  const requestFullscreen =
+    heroVideo.requestFullscreen ||
+    heroVideo.webkitRequestFullscreen ||
+    heroVideo.msRequestFullscreen;
+
+  try {
+    if (requestFullscreen) {
+      await requestFullscreen.call(heroVideo);
+    } else if (heroVideo.webkitEnterFullscreen) {
+      heroVideo.webkitEnterFullscreen();
+    } else {
+      heroVideo.controls = false;
+      setPreviewSound(previewSoundBeforeFullscreen);
+    }
+  } catch {
+    heroVideo.controls = false;
+    setPreviewSound(previewSoundBeforeFullscreen);
+  }
+
+  await playPromise;
+  syncHeroVideoToggle();
 };
 
 const startVideoMirror = () => {
@@ -143,7 +214,8 @@ modal?.addEventListener("close", () => {
   modalImage.alt = "";
 });
 
-heroToggle?.addEventListener("click", async () => {
+heroToggle?.addEventListener("click", async (event) => {
+  event.stopPropagation();
   if (!heroVideo) return;
 
   if (heroVideo.paused) {
@@ -155,8 +227,39 @@ heroToggle?.addEventListener("click", async () => {
   syncHeroVideoToggle();
 });
 
+heroSoundToggle?.addEventListener("click", async (event) => {
+  event.stopPropagation();
+  if (!heroVideo) return;
+
+  setPreviewSound(!previewSoundEnabled);
+  if (previewSoundEnabled) {
+    await heroVideo.play().catch(() => {});
+  }
+});
+
+heroFullscreenToggle?.addEventListener("click", (event) => {
+  event.stopPropagation();
+  enterHeroFullscreen();
+});
+
+heroVideoFrame?.addEventListener("click", (event) => {
+  if (event.target instanceof Element && event.target.closest("button")) return;
+  enterHeroFullscreen();
+});
+
+heroVideoFrame?.addEventListener("keydown", (event) => {
+  if (event.target instanceof Element && event.target.closest("button")) return;
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  enterHeroFullscreen();
+});
+
 heroVideo?.addEventListener("play", syncHeroVideoToggle);
 heroVideo?.addEventListener("pause", syncHeroVideoToggle);
+heroVideo?.addEventListener("volumechange", syncHeroSoundToggle);
+heroVideo?.addEventListener("webkitendfullscreen", restorePreviewAudioState);
+document.addEventListener("fullscreenchange", restorePreviewAudioState);
+document.addEventListener("webkitfullscreenchange", restorePreviewAudioState);
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
@@ -189,5 +292,7 @@ window.addEventListener("hashchange", syncNavWithHash);
 window.addEventListener("scroll", setHeaderState, { passive: true });
 setHeaderState();
 setFilter("all");
+setPreviewSound(false);
 syncHeroVideoToggle();
+syncHeroSoundToggle();
 startVideoMirror();
