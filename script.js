@@ -75,6 +75,12 @@ const syncHeroSoundToggle = () => {
   heroSoundToggle.setAttribute("aria-label", soundOn ? "关闭预览声音" : "开启预览声音");
 };
 
+const playHeroVideo = async () => {
+  if (!heroVideo) return;
+  await heroVideo.play().catch(() => {});
+  syncHeroVideoToggle();
+};
+
 const setPreviewSound = (enabled) => {
   if (!heroVideo) return;
   previewSoundEnabled = enabled;
@@ -232,9 +238,7 @@ heroSoundToggle?.addEventListener("click", async (event) => {
   if (!heroVideo) return;
 
   setPreviewSound(!previewSoundEnabled);
-  if (previewSoundEnabled) {
-    await heroVideo.play().catch(() => {});
-  }
+  await playHeroVideo();
 });
 
 heroFullscreenToggle?.addEventListener("click", (event) => {
@@ -293,6 +297,7 @@ window.addEventListener("scroll", setHeaderState, { passive: true });
 setHeaderState();
 setFilter("all");
 setPreviewSound(false);
+playHeroVideo();
 syncHeroVideoToggle();
 syncHeroSoundToggle();
 startVideoMirror();
