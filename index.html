@@ -29,10 +29,9 @@
         <span>鸣沙之门</span>
       </a>
       <nav class="site-nav" aria-label="主要导航">
-        <a href="#trailer">预告</a>
+        <a href="#trailer">视频</a>
         <a href="#art-preview">美术</a>
         <a href="#gameplay">玩法</a>
-        <a href="#world">世界</a>
         <a href="#nodes">资料</a>
       </nav>
       <a class="header-cta" href="#trailer">播放预告</a>
@@ -72,8 +71,8 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#trailer">观看动态预告</a>
-              <a class="button button-secondary" href="#gameplay">查看玩法闭环</a>
               <a class="button button-secondary" href="#art">浏览美术资产</a>
+              <a class="button button-secondary" href="#gameplay">查看玩法闭环</a>
             </div>
             <div class="hero-meta-row" aria-label="游戏亮点">
               <span>12-18 分钟单局</span>
@@ -135,6 +134,44 @@
         </div>
       </section>
 
+      <section class="section videos-section" id="videos" aria-labelledby="videos-title">
+        <div class="section-inner videos-layout">
+          <div class="video-copy">
+            <p class="section-kicker">Video Showcase</p>
+            <h2 id="videos-title">影像资料：动态预告、<span class="nowrap">玩法演示</span>、<span class="nowrap">声音机制</span>。</h2>
+            <p>
+              先看黑沙压境的第一印象，再按需切换到一局循环、声音辨位和系统拆解。
+            </p>
+            <div class="video-switcher" aria-label="切换视频">
+              <button type="button" class="is-active" data-video="0">动态预告</button>
+              <button type="button" data-video="1">玩法演示</button>
+              <button type="button" data-video="2">声音机制</button>
+              <button type="button" data-video="3">系统拆解</button>
+            </div>
+            <div class="video-chapters" aria-label="玩法演示章节跳转">
+              <button type="button" data-chapter="0">总览</button>
+              <button type="button" data-chapter="5">入局</button>
+              <button type="button" data-chapter="12">听声</button>
+              <button type="button" data-chapter="22">搜物</button>
+              <button type="button" data-chapter="32">雷鼓</button>
+              <button type="button" data-chapter="43">撤离</button>
+              <button type="button" data-chapter="54">结算</button>
+            </div>
+          </div>
+          <figure class="video-stage">
+            <video
+              data-feature-video
+              controls
+              playsinline
+              preload="metadata"
+              poster="assets/images/showcase/mingsha-hero-v3.png"
+              src="assets/videos/mingsha-cinematic-trailer-20260621.mp4"
+            ></video>
+            <figcaption data-feature-caption>最新动态预告：黑沙遗址、三兔门、雷鼓压迫和小队撤离。</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section class="section art-preview-section" id="art-preview" aria-labelledby="art-preview-title">
         <div class="section-inner art-preview-layout">
           <div class="section-heading">
@@ -159,6 +196,113 @@
             <article data-kind="portal" data-full="assets/images/promotional/dunhuang-four-deities-endgame-portal.png">
               <img src="assets/images/promotional/dunhuang-four-deities-endgame-portal.png" alt="风雨雷电四神终局传送门宣传图" loading="lazy" decoding="async">
               <div><span>撤离</span><strong>四神终局门</strong><p>守住三段共鸣后撤出。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section art-section" id="art" aria-labelledby="art-title">
+        <div class="section-inner">
+          <div class="asset-heading">
+            <div>
+              <p class="section-kicker">High Resolution Art</p>
+              <h2 id="art-title">核心美术资产：场景、角色、BOSS、传送门、<span class="nowrap">宝物道具</span>。</h2>
+            </div>
+            <div class="asset-filters" aria-label="资产筛选">
+              <button type="button" class="is-active" data-filter="all">全部</button>
+              <button type="button" data-filter="scene">场景</button>
+              <button type="button" data-filter="character">角色</button>
+              <button type="button" data-filter="enemy">敌人</button>
+              <button type="button" data-filter="boss">BOSS</button>
+              <button type="button" data-filter="portal">传送门</button>
+              <button type="button" data-filter="mechanism">机关</button>
+              <button type="button" data-filter="prop">宝物</button>
+            </div>
+          </div>
+
+          <div class="feature-gallery">
+            <article class="feature-art" data-kind="scene" data-full="assets/images/showcase/mingsha-hero-v3.png">
+              <img src="assets/images/showcase/mingsha-hero-v3.png" alt="三人小队逼近三兔壁画门的宣传主视觉" loading="lazy" decoding="async">
+              <div><span>黑沙入口</span><h3>三兔门前</h3><p>三人小队在风沙中逼近壁画门，远处雷神鼓影压住整片遗址。</p></div>
+            </article>
+            <article class="feature-art" data-kind="portal" data-full="assets/images/campaign/three-hares-portal-relic.png">
+              <img src="assets/images/campaign/three-hares-portal-relic.png" alt="三兔共耳传送门概念图" loading="lazy" decoding="async">
+              <div><span>核心装置</span><h3>三兔共耳传送门</h3><p>三只玉兔围绕星旋构成门体，承担终局撤离、深层入口和宣传识别。</p></div>
+            </article>
+            <article class="feature-art" data-kind="mechanism" data-full="assets/images/promotional/dunhuang-thunder-drum-gameplay.png">
+              <img src="assets/images/promotional/dunhuang-thunder-drum-gameplay.png" alt="雷鼓窟战斗玩法宣传图" loading="lazy" decoding="async">
+              <div><span>雷鼓玩法</span><h3>雷鼓窟战斗</h3><p>雷链劈开黑沙，鼓声短暂破盾，全队在窗口内推进或撤退。</p></div>
+            </article>
+          </div>
+
+          <div class="asset-grid">
+            <article class="asset-card" data-kind="character" data-full="assets/images/showcase/mingsha-hero-v3.png">
+              <img src="assets/images/showcase/mingsha-hero-v3.png" alt="三人小队逼近三兔壁画门的宣传主视觉" loading="lazy" decoding="async">
+              <div><span>小队入窟</span><h3>黑沙遗址小队</h3><p>三名玩家携带灯笼、盾牌和遗物筒，在雷云下进入三兔壁画门。</p></div>
+            </article>
+            <article class="asset-card" data-kind="enemy" data-full="assets/images/showcase/mingsha-enemies-nonboss-v3.png">
+              <img src="assets/images/showcase/mingsha-enemies-nonboss-v3.png" alt="鸣沙之门非 BOSS 敌人设定图" loading="lazy" decoding="async">
+              <div><span>敌人谱系</span><h3>非 BOSS 敌人矩阵</h3><p>巡游者、铃铛猎手、弓手、盾卫和祭司从壁画残影中醒来，逐层增加追击压力。</p></div>
+            </article>
+            <article class="asset-card" data-kind="portal" data-full="assets/images/promotional/dunhuang-thunder-portal-keyart.png">
+              <img src="assets/images/promotional/dunhuang-thunder-portal-keyart.png" alt="雷神与三兔壁画门的黑沙遗址主视觉" loading="lazy" decoding="async">
+              <div><span>门区主图</span><h3>雷神与三兔壁画门</h3><p>强调雷神压迫、壁画门尺度和小队进入遗址前的戏剧张力。</p></div>
+            </article>
+            <article class="asset-card" data-kind="mechanism" data-full="assets/images/promotional/dunhuang-thunder-drum-gameplay.png">
+              <img src="assets/images/promotional/dunhuang-thunder-drum-gameplay.png" alt="雷鼓窟战斗玩法宣传图" loading="lazy" decoding="async">
+              <div><span>雷鼓机关</span><h3>雷鼓窟战斗</h3><p>雷鼓响起后敌人短暂破盾，门区也会暴露在更猛烈的追击中。</p></div>
+            </article>
+            <article class="asset-card" data-kind="portal" data-full="assets/images/promotional/dunhuang-four-deities-endgame-portal.png">
+              <img src="assets/images/promotional/dunhuang-four-deities-endgame-portal.png" alt="风雨雷电四神终局传送门宣传图" loading="lazy" decoding="async">
+              <div><span>终局门区</span><h3>四神终局门</h3><p>风雨雷电在三兔门外汇合，终局撤离变成一场守门仪式。</p></div>
+            </article>
+            <article class="asset-card" data-kind="scene" data-full="assets/images/campaign/moonlit-ruins-approach.png">
+              <img src="assets/images/campaign/moonlit-ruins-approach.png" alt="月夜遗址入口场景概念图" loading="lazy" decoding="async">
+              <div><span>场景概念</span><h3>月夜遗址入口</h3><p>小队从外部黑沙遗址进入洞窟，建立探索前的压迫感。</p></div>
+            </article>
+            <article class="asset-card" data-kind="scene" data-full="assets/images/showcase/premium-mingsha-environment-concept.png">
+              <img src="assets/images/showcase/premium-mingsha-environment-concept.png" alt="黑沙鸣沙遗址高级场景概念图" loading="lazy" decoding="async">
+              <div><span>场景概念</span><h3>黑沙鸣沙遗址</h3><p>巨大的遗址被黑沙撕开，队伍在废墟尺度中显得渺小而脆弱。</p></div>
+            </article>
+            <article class="asset-card" data-kind="boss" data-full="assets/images/campaign/fresco-boss-encounter.png">
+              <img src="assets/images/campaign/fresco-boss-encounter.png" alt="壁画厅 BOSS 遭遇概念图" loading="lazy" decoding="async">
+              <div><span>BOSS 遭遇</span><h3>壁画厅交战</h3><p>黑沙怪物从壁面与地面中剥离，逼迫队伍在狭窄门厅里抢节奏。</p></div>
+            </article>
+            <article class="asset-card" data-kind="character" data-full="assets/images/campaign/dunhuang-thunder-god-keyart.png">
+              <img src="assets/images/campaign/dunhuang-thunder-god-keyart.png" alt="敦煌雷神角色原画" loading="lazy" decoding="async">
+              <div><span>角色设计</span><h3>雷神守护者</h3><p>风雨雷电四神之一，负责雷鼓、节奏窗口和门区压迫。</p></div>
+            </article>
+            <article class="asset-card" data-kind="character" data-full="assets/images/showcase/character-thunder-god-sheet.png">
+              <img src="assets/images/showcase/character-thunder-god-sheet.png" alt="雷神角色标准设定图" loading="lazy" decoding="async">
+              <div><span>角色设定</span><h3>雷神标准设定</h3><p>雷鼓、飘带、金饰和壁画纹样组成雷神守护者的核心轮廓。</p></div>
+            </article>
+            <article class="asset-card" data-kind="boss" data-full="assets/images/showcase/boss-black-sand-oathbearer.png">
+              <img src="assets/images/showcase/boss-black-sand-oathbearer.png" alt="黑沙守誓者 BOSS 概念图" loading="lazy" decoding="async">
+              <div><span>BOSS 怪物</span><h3>黑沙守誓者</h3><p>壁画石、铜面具和兔耳印构成门区守卫。</p></div>
+            </article>
+            <article class="asset-card" data-kind="enemy" data-full="assets/images/showcase/elite-enemies-design-sheet-v2.png">
+              <img src="assets/images/showcase/elite-enemies-design-sheet-v2.png" alt="精英怪角色标准设定图" loading="lazy" decoding="async">
+              <div><span>精英敌人</span><h3>铜铃猎手与壁影</h3><p>中高压 PvE 节点，能干扰听声判断并逼迫队伍改变撤离路线。</p></div>
+            </article>
+            <article class="asset-card" data-kind="mechanism" data-full="assets/images/showcase/interactable-mechanisms-design-sheet-v2.png">
+              <img src="assets/images/showcase/interactable-mechanisms-design-sheet-v2.png" alt="可交互机关标准设定图" loading="lazy" decoding="async">
+              <div><span>机关物件</span><h3>铜铃、拓印台、封印门</h3><p>与声音辨位和三兔门区相连，承担路标、风险提示与开门条件。</p></div>
+            </article>
+            <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/loot-relics-board.png">
+              <img src="assets/images/showcase/loot-relics-board.png" alt="核心宝物道具概念图" loading="lazy" decoding="async">
+              <div><span>宝物道具</span><h3>兔耳印与遗物组</h3><p>铜铃、壁画残卷、颜料罐、雷鼓碎片和黑沙遗物。</p></div>
+            </article>
+            <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/loot-chests-design-sheet-v2.png">
+              <img src="assets/images/showcase/loot-chests-design-sheet-v2.png" alt="不同级别宝箱标准设定图" loading="lazy" decoding="async">
+              <div><span>宝箱等级</span><h3>木匣、朱漆箱、鎏金宝箱</h3><p>对应低、中、高收益，也对应不同开箱噪音、时间和被发现风险。</p></div>
+            </article>
+            <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/props-chests-loot-art-bible-v3.png">
+              <img src="assets/images/showcase/props-chests-loot-art-bible-v3.png" alt="机关宝箱与掉落物标准设定图" loading="lazy" decoding="async">
+              <div><span>机关宝箱</span><h3>宝箱、雷鼓、兔耳钥</h3><p>三档宝箱、铜铃机关、拓印台、封印门与核心掉落物的统一设定图。</p></div>
+            </article>
+            <article class="asset-card" data-kind="scene" data-full="assets/images/showcase/scene-mogao-grotto-gate.png">
+              <img src="assets/images/showcase/scene-mogao-grotto-gate.png" alt="黑沙石窟与三兔共耳门场景图" loading="lazy" decoding="async">
+              <div><span>场景概念</span><h3>黑沙石窟门厅</h3><p>石窟入口、三兔门和黑沙风共同组成撤离前的压迫空间。</p></div>
             </article>
           </div>
         </div>
@@ -381,151 +525,6 @@
             <article><span>丝路流动</span><p>图像穿过商路和宗教空间，留下不同地域的变体。</p></article>
             <article><span>黑沙复苏</span><p>遗址中的纹样被雷鼓唤醒，成为门区共鸣机关。</p></article>
           </div>
-        </div>
-      </section>
-
-      <section class="section art-section" id="art" aria-labelledby="art-title">
-        <div class="section-inner">
-          <div class="asset-heading">
-            <div>
-              <p class="section-kicker">High Resolution Art</p>
-              <h2 id="art-title">核心美术资产：场景、角色、BOSS、传送门、<span class="nowrap">宝物道具</span>。</h2>
-            </div>
-            <div class="asset-filters" aria-label="资产筛选">
-              <button type="button" class="is-active" data-filter="all">全部</button>
-              <button type="button" data-filter="scene">场景</button>
-              <button type="button" data-filter="character">角色</button>
-              <button type="button" data-filter="enemy">敌人</button>
-              <button type="button" data-filter="boss">BOSS</button>
-              <button type="button" data-filter="portal">传送门</button>
-              <button type="button" data-filter="mechanism">机关</button>
-              <button type="button" data-filter="prop">宝物</button>
-            </div>
-          </div>
-
-          <div class="feature-gallery">
-            <article class="feature-art" data-kind="scene" data-full="assets/images/showcase/mingsha-hero-v3.png">
-              <img src="assets/images/showcase/mingsha-hero-v3.png" alt="三人小队逼近三兔壁画门的宣传主视觉" loading="lazy" decoding="async">
-              <div><span>黑沙入口</span><h3>三兔门前</h3><p>三人小队在风沙中逼近壁画门，远处雷神鼓影压住整片遗址。</p></div>
-            </article>
-            <article class="feature-art" data-kind="portal" data-full="assets/images/campaign/three-hares-portal-relic.png">
-              <img src="assets/images/campaign/three-hares-portal-relic.png" alt="三兔共耳传送门概念图" loading="lazy" decoding="async">
-              <div><span>核心装置</span><h3>三兔共耳传送门</h3><p>三只玉兔围绕星旋构成门体，承担终局撤离、深层入口和宣传识别。</p></div>
-            </article>
-            <article class="feature-art" data-kind="mechanism" data-full="assets/images/promotional/dunhuang-thunder-drum-gameplay.png">
-              <img src="assets/images/promotional/dunhuang-thunder-drum-gameplay.png" alt="雷鼓窟战斗玩法宣传图" loading="lazy" decoding="async">
-              <div><span>雷鼓玩法</span><h3>雷鼓窟战斗</h3><p>雷链劈开黑沙，鼓声短暂破盾，全队在窗口内推进或撤退。</p></div>
-            </article>
-          </div>
-
-          <div class="asset-grid">
-            <article class="asset-card" data-kind="character" data-full="assets/images/showcase/mingsha-hero-v3.png">
-              <img src="assets/images/showcase/mingsha-hero-v3.png" alt="三人小队逼近三兔壁画门的宣传主视觉" loading="lazy" decoding="async">
-              <div><span>小队入窟</span><h3>黑沙遗址小队</h3><p>三名玩家携带灯笼、盾牌和遗物筒，在雷云下进入三兔壁画门。</p></div>
-            </article>
-            <article class="asset-card" data-kind="enemy" data-full="assets/images/showcase/mingsha-enemies-nonboss-v3.png">
-              <img src="assets/images/showcase/mingsha-enemies-nonboss-v3.png" alt="鸣沙之门非 BOSS 敌人设定图" loading="lazy" decoding="async">
-              <div><span>敌人谱系</span><h3>非 BOSS 敌人矩阵</h3><p>巡游者、铃铛猎手、弓手、盾卫和祭司从壁画残影中醒来，逐层增加追击压力。</p></div>
-            </article>
-            <article class="asset-card" data-kind="portal" data-full="assets/images/promotional/dunhuang-thunder-portal-keyart.png">
-              <img src="assets/images/promotional/dunhuang-thunder-portal-keyart.png" alt="雷神与三兔壁画门的黑沙遗址主视觉" loading="lazy" decoding="async">
-              <div><span>门区主图</span><h3>雷神与三兔壁画门</h3><p>强调雷神压迫、壁画门尺度和小队进入遗址前的戏剧张力。</p></div>
-            </article>
-            <article class="asset-card" data-kind="mechanism" data-full="assets/images/promotional/dunhuang-thunder-drum-gameplay.png">
-              <img src="assets/images/promotional/dunhuang-thunder-drum-gameplay.png" alt="雷鼓窟战斗玩法宣传图" loading="lazy" decoding="async">
-              <div><span>雷鼓机关</span><h3>雷鼓窟战斗</h3><p>雷鼓响起后敌人短暂破盾，门区也会暴露在更猛烈的追击中。</p></div>
-            </article>
-            <article class="asset-card" data-kind="portal" data-full="assets/images/promotional/dunhuang-four-deities-endgame-portal.png">
-              <img src="assets/images/promotional/dunhuang-four-deities-endgame-portal.png" alt="风雨雷电四神终局传送门宣传图" loading="lazy" decoding="async">
-              <div><span>终局门区</span><h3>四神终局门</h3><p>风雨雷电在三兔门外汇合，终局撤离变成一场守门仪式。</p></div>
-            </article>
-            <article class="asset-card" data-kind="scene" data-full="assets/images/campaign/moonlit-ruins-approach.png">
-              <img src="assets/images/campaign/moonlit-ruins-approach.png" alt="月夜遗址入口场景概念图" loading="lazy" decoding="async">
-              <div><span>场景概念</span><h3>月夜遗址入口</h3><p>小队从外部黑沙遗址进入洞窟，建立探索前的压迫感。</p></div>
-            </article>
-            <article class="asset-card" data-kind="scene" data-full="assets/images/showcase/premium-mingsha-environment-concept.png">
-              <img src="assets/images/showcase/premium-mingsha-environment-concept.png" alt="黑沙鸣沙遗址高级场景概念图" loading="lazy" decoding="async">
-              <div><span>场景概念</span><h3>黑沙鸣沙遗址</h3><p>巨大的遗址被黑沙撕开，队伍在废墟尺度中显得渺小而脆弱。</p></div>
-            </article>
-            <article class="asset-card" data-kind="boss" data-full="assets/images/campaign/fresco-boss-encounter.png">
-              <img src="assets/images/campaign/fresco-boss-encounter.png" alt="壁画厅 BOSS 遭遇概念图" loading="lazy" decoding="async">
-              <div><span>BOSS 遭遇</span><h3>壁画厅交战</h3><p>黑沙怪物从壁面与地面中剥离，逼迫队伍在狭窄门厅里抢节奏。</p></div>
-            </article>
-            <article class="asset-card" data-kind="character" data-full="assets/images/campaign/dunhuang-thunder-god-keyart.png">
-              <img src="assets/images/campaign/dunhuang-thunder-god-keyart.png" alt="敦煌雷神角色原画" loading="lazy" decoding="async">
-              <div><span>角色设计</span><h3>雷神守护者</h3><p>风雨雷电四神之一，负责雷鼓、节奏窗口和门区压迫。</p></div>
-            </article>
-            <article class="asset-card" data-kind="character" data-full="assets/images/showcase/character-thunder-god-sheet.png">
-              <img src="assets/images/showcase/character-thunder-god-sheet.png" alt="雷神角色标准设定图" loading="lazy" decoding="async">
-              <div><span>角色设定</span><h3>雷神标准设定</h3><p>雷鼓、飘带、金饰和壁画纹样组成雷神守护者的核心轮廓。</p></div>
-            </article>
-            <article class="asset-card" data-kind="boss" data-full="assets/images/showcase/boss-black-sand-oathbearer.png">
-              <img src="assets/images/showcase/boss-black-sand-oathbearer.png" alt="黑沙守誓者 BOSS 概念图" loading="lazy" decoding="async">
-              <div><span>BOSS 怪物</span><h3>黑沙守誓者</h3><p>壁画石、铜面具和兔耳印构成门区守卫。</p></div>
-            </article>
-            <article class="asset-card" data-kind="enemy" data-full="assets/images/showcase/elite-enemies-design-sheet-v2.png">
-              <img src="assets/images/showcase/elite-enemies-design-sheet-v2.png" alt="精英怪角色标准设定图" loading="lazy" decoding="async">
-              <div><span>精英敌人</span><h3>铜铃猎手与壁影</h3><p>中高压 PvE 节点，能干扰听声判断并逼迫队伍改变撤离路线。</p></div>
-            </article>
-            <article class="asset-card" data-kind="mechanism" data-full="assets/images/showcase/interactable-mechanisms-design-sheet-v2.png">
-              <img src="assets/images/showcase/interactable-mechanisms-design-sheet-v2.png" alt="可交互机关标准设定图" loading="lazy" decoding="async">
-              <div><span>机关物件</span><h3>铜铃、拓印台、封印门</h3><p>与声音辨位和三兔门区相连，承担路标、风险提示与开门条件。</p></div>
-            </article>
-            <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/loot-relics-board.png">
-              <img src="assets/images/showcase/loot-relics-board.png" alt="核心宝物道具概念图" loading="lazy" decoding="async">
-              <div><span>宝物道具</span><h3>兔耳印与遗物组</h3><p>铜铃、壁画残卷、颜料罐、雷鼓碎片和黑沙遗物。</p></div>
-            </article>
-            <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/loot-chests-design-sheet-v2.png">
-              <img src="assets/images/showcase/loot-chests-design-sheet-v2.png" alt="不同级别宝箱标准设定图" loading="lazy" decoding="async">
-              <div><span>宝箱等级</span><h3>木匣、朱漆箱、鎏金宝箱</h3><p>对应低、中、高收益，也对应不同开箱噪音、时间和被发现风险。</p></div>
-            </article>
-            <article class="asset-card" data-kind="prop" data-full="assets/images/showcase/props-chests-loot-art-bible-v3.png">
-              <img src="assets/images/showcase/props-chests-loot-art-bible-v3.png" alt="机关宝箱与掉落物标准设定图" loading="lazy" decoding="async">
-              <div><span>机关宝箱</span><h3>宝箱、雷鼓、兔耳钥</h3><p>三档宝箱、铜铃机关、拓印台、封印门与核心掉落物的统一设定图。</p></div>
-            </article>
-            <article class="asset-card" data-kind="scene" data-full="assets/images/showcase/scene-mogao-grotto-gate.png">
-              <img src="assets/images/showcase/scene-mogao-grotto-gate.png" alt="黑沙石窟与三兔共耳门场景图" loading="lazy" decoding="async">
-              <div><span>场景概念</span><h3>黑沙石窟门厅</h3><p>石窟入口、三兔门和黑沙风共同组成撤离前的压迫空间。</p></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section videos-section" id="videos" aria-labelledby="videos-title">
-        <div class="section-inner videos-layout">
-          <div class="video-copy">
-            <p class="section-kicker">Video Showcase</p>
-            <h2 id="videos-title">影像资料：动态预告、<span class="nowrap">玩法演示</span>、<span class="nowrap">声音机制</span>。</h2>
-            <p>
-              动态预告呈现黑沙压境的第一印象，玩法演示展示一局循环，声音机制强调辨位、追击和三兔共鸣。
-            </p>
-            <div class="video-switcher" aria-label="切换视频">
-              <button type="button" class="is-active" data-video="0">动态预告</button>
-              <button type="button" data-video="1">玩法演示</button>
-              <button type="button" data-video="2">声音机制</button>
-              <button type="button" data-video="3">系统拆解</button>
-            </div>
-            <div class="video-chapters" aria-label="玩法演示章节跳转">
-              <button type="button" data-chapter="0">总览</button>
-              <button type="button" data-chapter="5">入局</button>
-              <button type="button" data-chapter="12">听声</button>
-              <button type="button" data-chapter="22">搜物</button>
-              <button type="button" data-chapter="32">雷鼓</button>
-              <button type="button" data-chapter="43">撤离</button>
-              <button type="button" data-chapter="54">结算</button>
-            </div>
-          </div>
-          <figure class="video-stage">
-            <video
-              data-feature-video
-              controls
-              playsinline
-              preload="metadata"
-              poster="assets/images/campaign/mural-threshold-extraction.png"
-              src="assets/videos/mingsha-cinematic-trailer-20260621.mp4"
-            ></video>
-            <figcaption data-feature-caption>最新动态预告：黑沙遗址、三兔门、雷鼓压迫和小队撤离。</figcaption>
-          </figure>
         </div>
       </section>
 
